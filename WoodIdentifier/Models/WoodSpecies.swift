@@ -3,28 +3,32 @@ import SwiftData
 
 @Model
 final class WoodSpecies {
-    @Attribute(.unique) var id: UUID
-    var name: String
+    @Attribute(.unique) var id: String
+    var commonName: String
     var scientificName: String
-    var speciesDescription: String
     var category: String
-    var hardness: Int?
-    var density: Double?
+    var jankaHardness: Int
+    var hardnessClass: String
+    var density: Double
     var grainPattern: String
+    var colorDescription: String
     var colorHex: String
-    var uses: String
-    var pricing: String
-    var imageURL: String
-    var region: String
     var workability: Int
     var durability: Int
-    var isFreeSpecies: Bool
-    var workingTips: String
-    var shrinkageRadial: Double?
-    var shrinkageTangential: Double?
+    var shrinkageTangential: Double
+    var shrinkageRadial: Double
+    var shrinkageRatio: Double
+    var commonUses: [String]
+    var priceLow: Double
+    var priceHigh: Double
+    var priceTier: String
+    var origin: String
     var sustainability: String
-    var confusedWith: String
-    var databaseVersion: Int
+    var workingTips: [String]
+    var similarSpeciesJSON: String // Store as JSON string for simplicity
+    var bestForJSON: String
+    var imagesJSON: String
+    var isFreeSpecies: Bool
 
     @Relationship(deleteRule: .cascade, inverse: \WoodProperty.species)
     var properties: [WoodProperty] = []
@@ -36,50 +40,102 @@ final class WoodSpecies {
     var projects: [WoodProject] = []
 
     init(
-        id: UUID = UUID(),
-        name: String,
-        scientificName: String,
-        speciesDescription: String = "",
-        category: String = "Hardwood",
-        hardness: Int? = nil,
-        density: Double? = nil,
+        id: String = "",
+        commonName: String = "",
+        scientificName: String = "",
+        category: String = "hardwood",
+        jankaHardness: Int = 0,
+        hardnessClass: String = "",
+        density: Double = 0,
         grainPattern: String = "",
-        colorHex: String = "#8B4513",
-        uses: String = "",
-        pricing: String = "$$",
-        imageURL: String = "",
-        region: String = "",
-        workability: Int = 5,
-        durability: Int = 5,
-        isFreeSpecies: Bool = false,
-        workingTips: String = "",
-        shrinkageRadial: Double? = nil,
-        shrinkageTangential: Double? = nil,
-        sustainability: String = "Common",
-        confusedWith: String = "",
-        databaseVersion: Int = 1
+        colorDescription: String = "",
+        colorHex: String = "",
+        workability: Int = 3,
+        durability: Int = 3,
+        shrinkageTangential: Double = 0,
+        shrinkageRadial: Double = 0,
+        shrinkageRatio: Double = 0,
+        commonUses: [String] = [],
+        priceLow: Double = 0,
+        priceHigh: Double = 0,
+        priceTier: String = "",
+        origin: String = "",
+        sustainability: String = "",
+        workingTips: [String] = [],
+        similarSpeciesJSON: String = "[]",
+        bestForJSON: String = "[]",
+        imagesJSON: String = "{}",
+        isFreeSpecies: Bool = false
     ) {
         self.id = id
-        self.name = name
+        self.commonName = commonName
         self.scientificName = scientificName
-        self.speciesDescription = speciesDescription
         self.category = category
-        self.hardness = hardness
+        self.jankaHardness = jankaHardness
+        self.hardnessClass = hardnessClass
         self.density = density
         self.grainPattern = grainPattern
+        self.colorDescription = colorDescription
         self.colorHex = colorHex
-        self.uses = uses
-        self.pricing = pricing
-        self.imageURL = imageURL
-        self.region = region
         self.workability = workability
         self.durability = durability
-        self.isFreeSpecies = isFreeSpecies
-        self.workingTips = workingTips
-        self.shrinkageRadial = shrinkageRadial
         self.shrinkageTangential = shrinkageTangential
+        self.shrinkageRadial = shrinkageRadial
+        self.shrinkageRatio = shrinkageRatio
+        self.commonUses = commonUses
+        self.priceLow = priceLow
+        self.priceHigh = priceHigh
+        self.priceTier = priceTier
+        self.origin = origin
         self.sustainability = sustainability
-        self.confusedWith = confusedWith
-        self.databaseVersion = databaseVersion
+        self.workingTips = workingTips
+        self.similarSpeciesJSON = similarSpeciesJSON
+        self.bestForJSON = bestForJSON
+        self.imagesJSON = imagesJSON
+        self.isFreeSpecies = isFreeSpecies
+    }
+
+    // MARK: - Computed Helpers
+
+    var averagePrice: Double {
+        (priceLow + priceHigh) / 2
+    }
+
+    var priceRangeFormatted: String {
+        "$\(Int(priceLow))–$\(Int(priceHigh))/bf"
+    }
+
+    struct SimilarSpecies: Codable {
+        let species: String
+        let speciesId: String
+        let differences: [String]
+    }
+
+    var similarSpecies: [SimilarSpecies] {
+        guard let data = similarSpeciesJSON.data(using: .utf8) else { return [] }
+        return (try? JSONDecoder().decode([SimilarSpecies].self, from: data)) ?? []
+    }
+
+    struct BestFor: Codable {
+        let use: String
+        let description: String
+    }
+
+    var bestFor: [BestFor] {
+        guard let data = bestForJSON.data(using: .utf8) else { return [] }
+        return (try? JSONDecoder().decode([BestFor].self, from: data)) ?? []
+    }
+
+    struct ImageURLs: Codable {
+        let grain: String?
+        let endGrain: String?
+        let board: String?
+        let tree: String?
+        let finished: String?
+    }
+
+    var imageURLs: ImageURLs? {
+        guard let data = imagesJSON.data(using: .utf8) else { return nil }
+        return try? JSONDecoder().decode(ImageURLs.self, from: data)
     }
 }
