@@ -7,6 +7,9 @@ struct WoodMatch: Identifiable, Codable, Hashable {
     let commonName: String
     let scientificName: String
     let confidence: Double
+    let hardness: Int?
+    let grainPattern: String
+    let typicalUses: String
     let properties: [String: String]
     let similarSpecies: [String]
 
@@ -16,6 +19,9 @@ struct WoodMatch: Identifiable, Codable, Hashable {
         commonName: String,
         scientificName: String,
         confidence: Double,
+        hardness: Int? = nil,
+        grainPattern: String = "",
+        typicalUses: String = "",
         properties: [String: String] = [:],
         similarSpecies: [String] = []
     ) {
@@ -24,6 +30,9 @@ struct WoodMatch: Identifiable, Codable, Hashable {
         self.commonName = commonName
         self.scientificName = scientificName
         self.confidence = confidence
+        self.hardness = hardness
+        self.grainPattern = grainPattern
+        self.typicalUses = typicalUses
         self.properties = properties
         self.similarSpecies = similarSpecies
     }

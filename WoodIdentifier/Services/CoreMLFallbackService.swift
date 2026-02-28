@@ -6,7 +6,7 @@ import Vision
 /// Offline fallback using a basic on-device classifier for top-50 wood species.
 /// In production, a real CoreML model (.mlmodelc) would be bundled in the app.
 /// This implementation provides the interface and gracefully degrades when no model is available.
-final class CoreMLFallbackService {
+final class CoreMLFallbackService: OfflineIdentificationService {
 
     // Top-50 common wood species for offline reference
     private static let knownSpecies: [(id: String, common: String, scientific: String)] = [
@@ -65,7 +65,6 @@ final class CoreMLFallbackService {
     /// Attempt identification using CoreML. Falls back to a placeholder result
     /// when no model is bundled (development builds).
     func identify(imageData: Data) async throws -> [WoodMatch] {
-        // Try loading a real CoreML model if bundled
         if let model = try? loadModel() {
             return try await classifyWithModel(model, imageData: imageData)
         }
@@ -77,6 +76,9 @@ final class CoreMLFallbackService {
                 commonName: "Unknown (Offline)",
                 scientificName: "—",
                 confidence: 0.3,
+                hardness: nil,
+                grainPattern: "Unknown",
+                typicalUses: "Unknown",
                 properties: ["note": "CoreML model not bundled. Results are placeholders."],
                 similarSpecies: ["White Oak", "Red Oak", "Hard Maple"]
             )

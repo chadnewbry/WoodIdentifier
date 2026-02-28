@@ -33,6 +33,8 @@
 		A10030 /* WoodImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10030 /* WoodImage.swift */; };
 		A10031 /* WoodProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10031 /* WoodProperty.swift */; };
 		A10032 /* PersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10032 /* PersistenceService.swift */; };
+		A10040 /* ScanResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10040 /* ScanResult.swift */; };
+		A10041 /* CameraPermissionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10041 /* CameraPermissionManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +65,8 @@
 		B10030 /* WoodImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoodImage.swift; sourceTree = "<group>"; };
 		B10031 /* WoodProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoodProperty.swift; sourceTree = "<group>"; };
 		B10032 /* PersistenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceService.swift; sourceTree = "<group>"; };
+		B10040 /* ScanResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanResult.swift; sourceTree = "<group>"; };
+		B10041 /* CameraPermissionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPermissionManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +181,7 @@
 				B10030 /* WoodImage.swift */,
 				B10031 /* WoodProperty.swift */,
 				B10009 /* WoodProject.swift */,
+				B10040 /* ScanResult.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -193,6 +198,7 @@
 				B10026 /* NetworkMonitor.swift */,
 				B10027 /* ScanFeedbackStore.swift */,
 				B10032 /* PersistenceService.swift */,
+				B10041 /* CameraPermissionManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -307,6 +313,8 @@
 				A10025 /* ScanQuotaManager.swift in Sources */,
 				A10026 /* NetworkMonitor.swift in Sources */,
 				A10027 /* ScanFeedbackStore.swift in Sources */,
+				A10040 /* ScanResult.swift in Sources */,
+				A10041 /* CameraPermissionManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

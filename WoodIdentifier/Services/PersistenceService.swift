@@ -8,7 +8,8 @@ enum PersistenceService {
         WoodSpecies.self,
         WoodProperty.self,
         WoodProject.self,
-        WoodImage.self
+        WoodImage.self,
+        ScanResult.self
     ]
 
     /// In-memory container for SwiftUI previews and tests.
@@ -20,6 +21,7 @@ enum PersistenceService {
             WoodProperty.self,
             WoodProject.self,
             WoodImage.self,
+            ScanResult.self,
             configurations: config
         )
 
