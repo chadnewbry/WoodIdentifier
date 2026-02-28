@@ -2,8 +2,9 @@ import SwiftUI
 import SwiftData
 
 struct SpeciesDetailView: View {
-    let species: WoodSpecies
+    @Bindable var species: WoodSpecies
     @State private var showHardnessComparison = false
+    @Environment(\.modelContext) private var modelContext
     @State private var isPro = false // TODO: wire to RevenueCat
 
     var body: some View {
@@ -24,6 +25,8 @@ struct SpeciesDetailView: View {
                 } else {
                     proUpsellBanner
                 }
+
+                actionButtons
             }
         }
         .navigationBarTitleDisplayMode(.inline)
@@ -333,6 +336,42 @@ struct SpeciesDetailView: View {
             }
             .padding(.vertical, 8)
         }
+    }
+
+
+    // MARK: - Action Buttons
+
+    private var actionButtons: some View {
+        VStack(spacing: 10) {
+            if isPro {
+                Button {
+                    species.savedToCollection.toggle()
+                    try? modelContext.save()
+                } label: {
+                    Label(
+                        species.savedToCollection ? "Saved to Collection" : "Save to Collection",
+                        systemImage: species.savedToCollection ? "bookmark.fill" : "bookmark"
+                    )
+                    .font(.headline)
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical, 12)
+                }
+                .buttonStyle(.borderedProminent)
+                .tint(species.savedToCollection ? .gray : .blue)
+            }
+
+            NavigationLink {
+                CameraView()
+            } label: {
+                Label("Identify This Wood", systemImage: "camera.fill")
+                    .font(.headline)
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical, 12)
+            }
+            .buttonStyle(.bordered)
+        }
+        .padding(.horizontal)
+        .padding(.vertical, 16)
     }
 
     // MARK: - Helpers

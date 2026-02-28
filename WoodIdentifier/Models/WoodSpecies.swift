@@ -24,6 +24,7 @@ final class WoodSpecies {
     var shrinkageTangential: Double?
     var sustainability: String
     var confusedWith: String
+    var savedToCollection: Bool
     var databaseVersion: Int
 
     @Relationship(deleteRule: .cascade, inverse: \WoodProperty.species)
@@ -57,6 +58,7 @@ final class WoodSpecies {
         shrinkageTangential: Double? = nil,
         sustainability: String = "Common",
         confusedWith: String = "",
+        savedToCollection: Bool = false,
         databaseVersion: Int = 1
     ) {
         self.id = id
@@ -80,6 +82,7 @@ final class WoodSpecies {
         self.shrinkageTangential = shrinkageTangential
         self.sustainability = sustainability
         self.confusedWith = confusedWith
+        self.savedToCollection = savedToCollection
         self.databaseVersion = databaseVersion
     }
 }
