@@ -1,35 +1,48 @@
 import SwiftUI
 
 struct CameraView: View {
+    @State private var showTutorial = !UserDefaults.standard.bool(forKey: "hasSeenFirstScanTutorial")
+
     var body: some View {
         NavigationStack {
-            VStack(spacing: 20) {
-                Spacer()
+            ZStack {
+                VStack {
+                    Spacer()
 
-                Image(systemName: "camera.viewfinder")
-                    .font(.system(size: 80))
-                    .foregroundStyle(.secondary)
+                    Image(systemName: "camera.viewfinder")
+                        .font(.system(size: 60))
+                        .foregroundStyle(.secondary)
 
-                Text("Take a photo of wood to identify it")
-                    .font(.headline)
-                    .foregroundStyle(.secondary)
+                    Text("Camera Preview")
+                        .font(.headline)
+                        .padding(.top)
 
-                Button(action: {
-                    // TODO: Implement camera capture
-                }) {
-                    Label("Take Photo", systemImage: "camera.fill")
-                        .font(.title3)
-                        .padding()
-                        .frame(maxWidth: .infinity)
-                        .background(Color.accentColor)
-                        .foregroundStyle(.white)
-                        .clipShape(RoundedRectangle(cornerRadius: 12))
+                    Text("Point at wood to identify species")
+                        .font(.subheadline)
+                        .foregroundStyle(.secondary)
+
+                    Spacer()
+
+                    Button {
+                        // Simulate a scan
+                        if showTutorial {
+                            withAnimation {
+                                showTutorial = false
+                                UserDefaults.standard.set(true, forKey: "hasSeenFirstScanTutorial")
+                            }
+                        }
+                    } label: {
+                        Image(systemName: "camera.circle.fill")
+                            .font(.system(size: 72))
+                            .foregroundStyle(.brown)
+                    }
+                    .padding(.bottom, 20)
                 }
-                .padding(.horizontal)
 
-                Spacer()
+                FirstScanTutorialOverlay(isVisible: $showTutorial)
             }
-            .navigationTitle("Identify Wood")
+            .navigationTitle("Scan Wood")
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }
