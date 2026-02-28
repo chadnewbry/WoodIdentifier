@@ -37,6 +37,7 @@
 		A10032 /* PersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10032 /* PersistenceService.swift */; };
 		A10040 /* ScanResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10040 /* ScanResult.swift */; };
 		A10041 /* CameraPermissionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10041 /* CameraPermissionManager.swift */; };
+		B94A2EA0BC2248F18FD4941F /* SpeciesDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFA0A7F82CA4541806D7107 /* SpeciesDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +72,7 @@
 		B10032 /* PersistenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceService.swift; sourceTree = "<group>"; };
 		B10040 /* ScanResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanResult.swift; sourceTree = "<group>"; };
 		B10041 /* CameraPermissionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPermissionManager.swift; sourceTree = "<group>"; };
+		8AFA0A7F82CA4541806D7107 /* SpeciesDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeciesDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 		E10004 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				489DEA969BE146A587C1AB3F /* SpeciesDetail */,
 				A1B2C3D400000007 /* Onboarding */,
 				E10005 /* Camera */,
 				E10006 /* Results */,
@@ -225,6 +228,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		489DEA969BE146A587C1AB3F /* SpeciesDetail */ = {
+			isa = PBXGroup;
+			children = (
+				8AFA0A7F82CA4541806D7107 /* SpeciesDetailView.swift */,
+			);
+			path = SpeciesDetail;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -283,6 +294,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B94A2EA0BC2248F18FD4941F /* SpeciesDetailView.swift in Sources */,
 				A10011 /* Assets.xcassets in Resources */,
 				A10012 /* Preview Assets.xcassets in Resources */,
 			);
