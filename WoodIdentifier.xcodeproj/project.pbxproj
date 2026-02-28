@@ -22,6 +22,17 @@
 		A10010 /* WoodIdentificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10010; };
 		A10011 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B10011; };
 		A10012 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B10012; };
+		A10020 /* WoodMatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10020 /* WoodMatch.swift */; };
+		A10021 /* CloudVisionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10021 /* CloudVisionService.swift */; };
+		A10022 /* CoreMLFallbackService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10022 /* CoreMLFallbackService.swift */; };
+		A10023 /* ImageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10023 /* ImageProcessor.swift */; };
+		A10024 /* CameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10024 /* CameraManager.swift */; };
+		A10025 /* ScanQuotaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10025 /* ScanQuotaManager.swift */; };
+		A10026 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10026 /* NetworkMonitor.swift */; };
+		A10027 /* ScanFeedbackStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10027 /* ScanFeedbackStore.swift */; };
+		A10030 /* WoodImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10030 /* WoodImage.swift */; };
+		A10031 /* WoodProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10031 /* WoodProperty.swift */; };
+		A10032 /* PersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10032 /* PersistenceService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,11 +47,22 @@
 		B10006 /* ProjectTrackingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectTrackingView.swift; sourceTree = "<group>"; };
 		B10007 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		B10008 /* WoodSpecies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoodSpecies.swift; sourceTree = "<group>"; };
-		B10009 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
+		B10009 /* WoodProject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoodProject.swift; sourceTree = "<group>"; };
 		B10010 /* WoodIdentificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoodIdentificationService.swift; sourceTree = "<group>"; };
 		B10011 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B10012 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C10001 /* WoodIdentifier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WoodIdentifier.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B10020 /* WoodMatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoodMatch.swift; sourceTree = "<group>"; };
+		B10021 /* CloudVisionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudVisionService.swift; sourceTree = "<group>"; };
+		B10022 /* CoreMLFallbackService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreMLFallbackService.swift; sourceTree = "<group>"; };
+		B10023 /* ImageProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProcessor.swift; sourceTree = "<group>"; };
+		B10024 /* CameraManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraManager.swift; sourceTree = "<group>"; };
+		B10025 /* ScanQuotaManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanQuotaManager.swift; sourceTree = "<group>"; };
+		B10026 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		B10027 /* ScanFeedbackStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanFeedbackStore.swift; sourceTree = "<group>"; };
+		B10030 /* WoodImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoodImage.swift; sourceTree = "<group>"; };
+		B10031 /* WoodProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoodProperty.swift; sourceTree = "<group>"; };
+		B10032 /* PersistenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,7 +173,10 @@
 			isa = PBXGroup;
 			children = (
 				B10008 /* WoodSpecies.swift */,
-				B10009 /* Project.swift */,
+				B10020 /* WoodMatch.swift */,
+				B10030 /* WoodImage.swift */,
+				B10031 /* WoodProperty.swift */,
+				B10009 /* WoodProject.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -160,6 +185,14 @@
 			isa = PBXGroup;
 			children = (
 				B10010 /* WoodIdentificationService.swift */,
+				B10021 /* CloudVisionService.swift */,
+				B10022 /* CoreMLFallbackService.swift */,
+				B10023 /* ImageProcessor.swift */,
+				B10024 /* CameraManager.swift */,
+				B10025 /* ScanQuotaManager.swift */,
+				B10026 /* NetworkMonitor.swift */,
+				B10027 /* ScanFeedbackStore.swift */,
+				B10032 /* PersistenceService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -238,9 +271,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1B2C3D400000002 /* OnboardingView.swift in Sources */,
-				A1B2C3D400000004 /* UserProfileSetupView.swift in Sources */,
-				A1B2C3D400000006 /* FirstScanTutorialView.swift in Sources */,
 				A10011 /* Assets.xcassets in Resources */,
 				A10012 /* Preview Assets.xcassets in Resources */,
 			);
@@ -261,8 +291,22 @@
 				A10006 /* ProjectTrackingView.swift in Sources */,
 				A10007 /* SettingsView.swift in Sources */,
 				A10008 /* WoodSpecies.swift in Sources */,
-				A10009 /* Project.swift in Sources */,
+				A10009 /* WoodProject.swift in Sources */,
+				A1B2C3D400000002 /* OnboardingView.swift in Sources */,
+				A1B2C3D400000004 /* UserProfileSetupView.swift in Sources */,
+				A1B2C3D400000006 /* FirstScanTutorialView.swift in Sources */,
 				A10010 /* WoodIdentificationService.swift in Sources */,
+				A10030 /* WoodImage.swift in Sources */,
+				A10031 /* WoodProperty.swift in Sources */,
+				A10032 /* PersistenceService.swift in Sources */,
+				A10020 /* WoodMatch.swift in Sources */,
+				A10021 /* CloudVisionService.swift in Sources */,
+				A10022 /* CoreMLFallbackService.swift in Sources */,
+				A10023 /* ImageProcessor.swift in Sources */,
+				A10024 /* CameraManager.swift in Sources */,
+				A10025 /* ScanQuotaManager.swift in Sources */,
+				A10026 /* NetworkMonitor.swift in Sources */,
+				A10027 /* ScanFeedbackStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
