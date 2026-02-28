@@ -1,32 +1,46 @@
 import Foundation
+import SwiftData
 
-struct WoodSpecies: Identifiable, Codable {
-    let id: UUID
-    let commonName: String
-    let scientificName: String
-    let description: String
-    let hardness: Int?
-    let color: String
-    let grain: String
-    let uses: [String]
+@Model
+final class WoodSpecies {
+    @Attribute(.unique) var id: UUID
+    var name: String
+    var scientificName: String
+    var speciesDescription: String
+    var hardness: Int?
+    var grainPattern: String
+    var uses: String
+    var pricing: String
+    var imageURL: String
+
+    @Relationship(deleteRule: .cascade, inverse: \WoodProperty.species)
+    var properties: [WoodProperty] = []
+
+    @Relationship(deleteRule: .cascade, inverse: \WoodImage.associatedSpecies)
+    var images: [WoodImage] = []
+
+    @Relationship(inverse: \WoodProject.woodSpecies)
+    var projects: [WoodProject] = []
 
     init(
         id: UUID = UUID(),
-        commonName: String,
+        name: String,
         scientificName: String,
-        description: String = "",
+        speciesDescription: String = "",
         hardness: Int? = nil,
-        color: String = "",
-        grain: String = "",
-        uses: [String] = []
+        grainPattern: String = "",
+        uses: String = "",
+        pricing: String = "",
+        imageURL: String = ""
     ) {
         self.id = id
-        self.commonName = commonName
+        self.name = name
         self.scientificName = scientificName
-        self.description = description
+        self.speciesDescription = speciesDescription
         self.hardness = hardness
-        self.color = color
-        self.grain = grain
+        self.grainPattern = grainPattern
         self.uses = uses
+        self.pricing = pricing
+        self.imageURL = imageURL
     }
 }
