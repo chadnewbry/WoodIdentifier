@@ -1,7 +1,15 @@
 import Foundation
 import UIKit
 
-// MARK: - Protocol
+// MARK: - Offline protocol
+
+/// Stub protocol for on-device (offline) wood identification.
+/// Implement this with a real CoreML model when one is available.
+protocol OfflineIdentificationService {
+    func identify(imageData: Data) async throws -> [WoodMatch]
+}
+
+// MARK: - Main protocol
 
 /// Protocol for wood identification from photos.
 protocol WoodIdentificationServiceProtocol {
@@ -31,6 +39,13 @@ enum WoodIdentificationError: LocalizedError {
     }
 }
 
+// MARK: - NSCache wrapper
+
+private final class CachedMatches {
+    let matches: [WoodMatch]
+    init(_ matches: [WoodMatch]) { self.matches = matches }
+}
+
 // MARK: - Implementation
 
 /// Orchestrates cloud and offline wood identification with quota tracking and caching.
@@ -38,16 +53,17 @@ final class WoodIdentificationService: WoodIdentificationServiceProtocol {
     static let shared = WoodIdentificationService()
 
     private let cloudService = CloudVisionService()
-    private let fallbackService = CoreMLFallbackService()
+    private let fallbackService: OfflineIdentificationService = CoreMLFallbackService()
     private let imageProcessor = ImageProcessor()
-    private let quotaManager = ScanQuotaManager()
+    private let quotaManager = ScanQuotaManager.shared
     private let networkMonitor = NetworkMonitor.shared
-    private let feedbackStore = ScanFeedbackStore.shared
 
-    // Simple in-memory cache keyed by image data hash
-    private var cache: [Int: [WoodMatch]] = [:]
+    /// In-memory result cache keyed by SHA-256 hex of compressed image data.
+    private let cache = NSCache<NSString, CachedMatches>()
 
-    private init() {}
+    private init() {
+        cache.countLimit = 50
+    }
 
     func identifyFromPhoto(_ image: UIImage) async throws -> IdentificationResult {
         try await identifyFromMultiplePhotos([image])
@@ -58,59 +74,63 @@ final class WoodIdentificationService: WoodIdentificationServiceProtocol {
             throw WoodIdentificationError.quotaExceeded
         }
 
-        // Check cache for single image
-        if images.count == 1, let img = images.first,
-           let data = img.jpegData(compressionQuality: 0.5) {
-            let hash = data.hashValue
-            if let cached = cache[hash] {
-                return IdentificationResult(
-                    matches: cached,
-                    isOfflineResult: false,
-                    scansRemaining: quotaManager.scansRemaining
-                )
-            }
-        }
-
-        // Process images
-        let processed = try images.map { img -> Data in
+        // Compress images for upload
+        let processed: [Data] = try images.map { img in
             guard let data = imageProcessor.compressForUpload(img) else {
                 throw WoodIdentificationError.imageProcessingFailed
             }
             return data
         }
 
-        let isOffline = !networkMonitor.isConnected
-        let matches: [WoodMatch]
-
-        if isOffline {
-            // CoreML fallback — only uses first image
-            matches = try await fallbackService.identify(imageData: processed[0])
-        } else {
-            do {
-                matches = try await cloudService.identify(imagesData: processed)
-            } catch {
-                // Fall back to CoreML on network failure
-                matches = try await fallbackService.identify(imageData: processed[0])
-                quotaManager.recordScan()
+        // Check cache (single-image only)
+        if processed.count == 1 {
+            let key = imageProcessor.hashImage(data: processed[0]) as NSString
+            if let cached = cache.object(forKey: key) {
                 return IdentificationResult(
-                    matches: matches,
-                    isOfflineResult: true,
+                    matches: cached.matches,
+                    isOfflineResult: false,
                     scansRemaining: quotaManager.scansRemaining
                 )
             }
         }
 
+        let isOffline = !networkMonitor.isConnected
+        let matches: [WoodMatch]
+        let usedOffline: Bool
+
+        if isOffline {
+            matches = try await fallbackService.identify(imageData: processed[0])
+            usedOffline = true
+        } else {
+            do {
+                matches = try await cloudService.identify(imagesData: processed)
+                usedOffline = false
+            } catch {
+                // Attempt offline fallback on network failure
+                let fallback = try? await fallbackService.identify(imageData: processed[0])
+                if let fallback, !fallback.isEmpty {
+                    quotaManager.recordScan()
+                    return IdentificationResult(
+                        matches: fallback,
+                        isOfflineResult: true,
+                        scansRemaining: quotaManager.scansRemaining
+                    )
+                }
+                throw error
+            }
+        }
+
         quotaManager.recordScan()
 
-        // Cache single-image results
-        if images.count == 1, let img = images.first,
-           let data = img.jpegData(compressionQuality: 0.5) {
-            cache[data.hashValue] = matches
+        // Cache single-image cloud results
+        if processed.count == 1 && !usedOffline {
+            let key = imageProcessor.hashImage(data: processed[0]) as NSString
+            cache.setObject(CachedMatches(matches), forKey: key)
         }
 
         return IdentificationResult(
             matches: matches,
-            isOfflineResult: isOffline,
+            isOfflineResult: usedOffline,
             scansRemaining: quotaManager.scansRemaining
         )
     }

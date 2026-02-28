@@ -27,7 +27,8 @@ struct WoodIdentifierApp: App {
             WoodSpecies.self,
             WoodProperty.self,
             WoodProject.self,
-            WoodImage.self
+            WoodImage.self,
+            ScanResult.self
         ])
     }
 }
