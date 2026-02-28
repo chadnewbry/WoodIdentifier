@@ -2,7 +2,7 @@ import AVFoundation
 import UIKit
 import SwiftUI
 
-/// Manages camera permissions and provides a UIKit camera preview coordinator.
+/// Manages camera permissions, preview session, flash control, and photo capture.
 final class CameraManager: NSObject, ObservableObject {
     @Published var permissionGranted = false
     @Published var capturedImage: UIImage?
@@ -12,6 +12,8 @@ final class CameraManager: NSObject, ObservableObject {
     private let output = AVCapturePhotoOutput()
     private let imageProcessor = ImageProcessor()
     private var continuation: CheckedContinuation<UIImage, Error>?
+    private var flashMode: AVCaptureDevice.FlashMode = .off
+    private var currentDevice: AVCaptureDevice?
 
     override init() {
         super.init()
@@ -44,6 +46,7 @@ final class CameraManager: NSObject, ObservableObject {
             return
         }
 
+        currentDevice = device
         session.addInput(input)
 
         if session.canAddOutput(output) {
@@ -69,12 +72,19 @@ final class CameraManager: NSObject, ObservableObject {
 
     var captureSession: AVCaptureSession { session }
 
+    /// Toggle flash mode for subsequent captures.
+    func setFlashMode(_ mode: AVCaptureDevice.FlashMode) {
+        flashMode = mode
+    }
+
     /// Capture a photo asynchronously.
     func capturePhoto() async throws -> UIImage {
         try await withCheckedThrowingContinuation { cont in
             self.continuation = cont
             let settings = AVCapturePhotoSettings()
-            settings.flashMode = .auto
+            if output.supportedFlashModes.contains(flashMode) {
+                settings.flashMode = flashMode
+            }
             output.capturePhoto(with: settings, delegate: self)
         }
     }

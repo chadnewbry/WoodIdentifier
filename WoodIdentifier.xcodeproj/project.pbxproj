@@ -13,6 +13,8 @@
 		A10001 /* WoodIdentifierApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10001; };
 		A10002 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10002; };
 		A10003 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10003; };
+		C20001 /* CameraPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20002; };
+		C20003 /* TreeRingLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20004; };
 		A10004 /* ResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10004; };
 		A10005 /* WoodDatabaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10005; };
 		A10006 /* ProjectTrackingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10006; };
@@ -44,6 +46,8 @@
 		B10001 /* WoodIdentifierApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoodIdentifierApp.swift; sourceTree = "<group>"; };
 		B10002 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B10003 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		C20002 /* CameraPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreviewView.swift; sourceTree = "<group>"; };
+		C20004 /* TreeRingLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeRingLoadingView.swift; sourceTree = "<group>"; };
 		B10004 /* ResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsView.swift; sourceTree = "<group>"; };
 		B10005 /* WoodDatabaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoodDatabaseView.swift; sourceTree = "<group>"; };
 		B10006 /* ProjectTrackingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectTrackingView.swift; sourceTree = "<group>"; };
@@ -137,6 +141,8 @@
 			isa = PBXGroup;
 			children = (
 				B10003 /* CameraView.swift */,
+				C20002 /* CameraPreviewView.swift */,
+				C20004 /* TreeRingLoadingView.swift */,
 			);
 			path = Camera;
 			sourceTree = "<group>";
@@ -292,6 +298,8 @@
 				A10001 /* WoodIdentifierApp.swift in Sources */,
 				A10002 /* ContentView.swift in Sources */,
 				A10003 /* CameraView.swift in Sources */,
+				C20001 /* CameraPreviewView.swift in Sources */,
+				C20003 /* TreeRingLoadingView.swift in Sources */,
 				A10004 /* ResultsView.swift in Sources */,
 				A10005 /* WoodDatabaseView.swift in Sources */,
 				A10006 /* ProjectTrackingView.swift in Sources */,
