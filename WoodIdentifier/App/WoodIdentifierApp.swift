@@ -1,4 +1,5 @@
 import SwiftUI
+import SwiftData
 
 @main
 struct WoodIdentifierApp: App {
@@ -6,5 +7,11 @@ struct WoodIdentifierApp: App {
         WindowGroup {
             ContentView()
         }
+        .modelContainer(for: [
+            WoodSpecies.self,
+            WoodProperty.self,
+            WoodProject.self,
+            WoodImage.self
+        ])
     }
 }
