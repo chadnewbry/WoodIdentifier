@@ -30,11 +30,21 @@ enum PersistenceService {
             name: "White Oak",
             scientificName: "Quercus alba",
             speciesDescription: "A strong, durable hardwood prized for furniture and flooring.",
+            category: "Hardwood",
             hardness: 1360,
+            density: 0.68,
             grainPattern: "Straight to slightly irregular",
+            colorHex: "#C4A35A",
             uses: "Furniture, flooring, barrels, boat building",
             pricing: "$$",
-            imageURL: ""
+            region: "North America",
+            workability: 7,
+            durability: 8,
+            isFreeSpecies: true,
+            workingTips: "Easy to work with hand and machine tools.",
+            shrinkageRadial: 3.7,
+            shrinkageTangential: 6.1,
+            sustainability: "Common"
         )
         container.mainContext.insert(oak)
 
