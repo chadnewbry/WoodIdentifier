@@ -34,7 +34,7 @@ final class CameraManager: NSObject, ObservableObject {
     }
 
     func setupSession() {
-        guard permissionGranted else { return }
+        guard permissionGranted, session.inputs.isEmpty else { return }
 
         session.beginConfiguration()
         session.sessionPreset = .photo
@@ -79,7 +79,11 @@ final class CameraManager: NSObject, ObservableObject {
 
     /// Capture a photo asynchronously.
     func capturePhoto() async throws -> UIImage {
-        try await withCheckedThrowingContinuation { cont in
+        guard session.isRunning,
+              output.connection(with: .video)?.isActive == true else {
+            throw WoodIdentificationError.imageProcessingFailed
+        }
+        return try await withCheckedThrowingContinuation { cont in
             self.continuation = cont
             let settings = AVCapturePhotoSettings()
             if output.supportedFlashModes.contains(flashMode) {
