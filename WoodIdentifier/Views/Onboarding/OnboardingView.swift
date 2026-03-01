@@ -3,6 +3,7 @@ import SwiftUI
 struct OnboardingView: View {
     @Binding var hasCompletedOnboarding: Bool
     @State private var currentPage = 0
+    @State private var showPaywall = false
 
     var body: some View {
         TabView(selection: $currentPage) {
@@ -46,9 +47,19 @@ struct OnboardingView: View {
             .foregroundStyle(.secondary)
             .padding()
         }
+        .fullScreenCover(isPresented: $showPaywall) {
+            PaywallView(isDismissable: true)
+                .onDisappear {
+                    finishOnboarding()
+                }
+        }
     }
 
     private func completeOnboarding() {
+        showPaywall = true
+    }
+
+    private func finishOnboarding() {
         hasCompletedOnboarding = true
         UserDefaults.standard.set(true, forKey: "hasCompletedOnboarding")
     }

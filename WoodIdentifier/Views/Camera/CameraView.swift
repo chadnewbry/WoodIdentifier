@@ -1,4 +1,5 @@
 import SwiftUI
+import StoreKit
 import PhotosUI
 import AVFoundation
 
@@ -18,6 +19,7 @@ struct CameraView: View {
 
     private let identificationService = WoodIdentificationService.shared
     private let quotaManager = ScanQuotaManager.shared
+    @StateObject private var subscriptionManager = SubscriptionManager.shared
 
     var body: some View {
         ZStack {
@@ -105,6 +107,9 @@ struct CameraView: View {
                 ScanResultsSheet(result: result, photos: selectedPhotos)
             }
         }
+        .fullScreenCover(isPresented: $showPaywall) {
+            PaywallView(isDismissable: true)
+        }
         .onAppear {
             cameraManager.setupSession()
             cameraManager.startSession()
@@ -146,13 +151,34 @@ struct CameraView: View {
             Spacer()
 
             // Scan counter badge
-            if quotaManager.scansRemaining < 4 {
-                Text("\(quotaManager.scansRemaining) scans left")
-                    .font(.caption.weight(.semibold))
-                    .foregroundStyle(.white)
-                    .padding(.horizontal, 10)
-                    .padding(.vertical, 5)
-                    .background(.ultraThinMaterial, in: Capsule())
+            if !subscriptionManager.isProUser {
+                HStack(spacing: 6) {
+                    Text("\(quotaManager.scansRemaining) scans left")
+                        .font(.caption.weight(.semibold))
+                        .foregroundStyle(.white)
+                    Button {
+                        showPaywall = true
+                    } label: {
+                        Image(systemName: "crown.fill")
+                            .font(.caption)
+                            .foregroundStyle(.yellow)
+                    }
+                }
+                .padding(.horizontal, 10)
+                .padding(.vertical, 5)
+                .background(.ultraThinMaterial, in: Capsule())
+            } else {
+                HStack(spacing: 4) {
+                    Image(systemName: "crown.fill")
+                        .font(.caption)
+                        .foregroundStyle(.yellow)
+                    Text("Pro")
+                        .font(.caption.weight(.semibold))
+                        .foregroundStyle(.white)
+                }
+                .padding(.horizontal, 10)
+                .padding(.vertical, 5)
+                .background(.ultraThinMaterial, in: Capsule())
             }
         }
         .padding(.horizontal, 16)
@@ -401,10 +427,12 @@ struct CameraView: View {
 
         do {
             let result = try await identificationService.identifyFromMultiplePhotos(selectedPhotos)
+            quotaManager.recordScan()
             await MainActor.run {
                 withAnimation { isIdentifying = false }
                 identificationResult = result
                 showResults = true
+                ReviewPromptManager.requestReviewIfAppropriate()
             }
         } catch let error as WoodIdentificationError {
             await MainActor.run {

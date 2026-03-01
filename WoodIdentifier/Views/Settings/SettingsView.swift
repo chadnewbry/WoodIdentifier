@@ -27,8 +27,8 @@ struct SettingsView: View {
                 aboutSection
             }
             .navigationTitle("Settings")
-            .sheet(isPresented: $viewModel.showPaywall) {
-                PaywallPlaceholderView()
+            .fullScreenCover(isPresented: $viewModel.showPaywall) {
+                PaywallView(isDismissable: true)
             }
             .sheet(isPresented: $viewModel.showFeedbackForm) {
                 FeedbackFormView(viewModel: viewModel)
@@ -267,40 +267,6 @@ struct SettingsView: View {
     }
 }
 
-// MARK: - Paywall Placeholder
-
-struct PaywallPlaceholderView: View {
-    @Environment(\.dismiss) private var dismiss
-
-    var body: some View {
-        NavigationStack {
-            VStack(spacing: 24) {
-                Image(systemName: "crown.fill")
-                    .font(.system(size: 60))
-                    .foregroundStyle(.yellow)
-
-                Text("WoodSnap Pro")
-                    .font(.largeTitle.bold())
-
-                Text("Unlock unlimited scans, detailed species data, and more.")
-                    .multilineTextAlignment(.center)
-                    .foregroundStyle(.secondary)
-                    .padding(.horizontal)
-
-                // TODO: Replace with RevenueCat PaywallView
-                Text("Paywall will be powered by RevenueCat")
-                    .font(.caption)
-                    .foregroundStyle(.tertiary)
-            }
-            .padding()
-            .toolbar {
-                ToolbarItem(placement: .cancellationAction) {
-                    Button("Close") { dismiss() }
-                }
-            }
-        }
-    }
-}
 
 // MARK: - Feedback Form
 

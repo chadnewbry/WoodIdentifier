@@ -43,6 +43,12 @@ final class SettingsViewModel: ObservableObject {
     @Published var showPaywall = false
     @Published var isRestoringPurchases = false
 
+    init() {
+        if SubscriptionManager.shared.isProUser {
+            currentPlan = .proAnnual
+        }
+    }
+
     // Preferences
     @AppStorage("measurementSystem") var measurementSystem: String = MeasurementSystem.imperial.rawValue
     @AppStorage("defaultScanMode") var defaultScanMode: String = ScanMode.single.rawValue
@@ -59,7 +65,7 @@ final class SettingsViewModel: ObservableObject {
     @Published var feedbackSubmitted = false
 
     var isPro: Bool {
-        currentPlan != .free
+        SubscriptionManager.shared.isProUser
     }
 
     var appVersion: String {
@@ -88,9 +94,15 @@ final class SettingsViewModel: ObservableObject {
 
     func restorePurchases() {
         isRestoringPurchases = true
-        // TODO: Wire to RevenueCat
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) { [weak self] in
-            self?.isRestoringPurchases = false
+        Task {
+            await SubscriptionManager.shared.restorePurchases()
+            await MainActor.run {
+                isRestoringPurchases = false
+                // Update plan display
+                if SubscriptionManager.shared.isProUser {
+                    currentPlan = .proAnnual // Generic pro indicator
+                }
+            }
         }
     }
 

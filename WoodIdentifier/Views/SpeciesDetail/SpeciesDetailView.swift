@@ -5,7 +5,8 @@ struct SpeciesDetailView: View {
     @Bindable var species: WoodSpecies
     @State private var showHardnessComparison = false
     @Environment(\.modelContext) private var modelContext
-    @State private var isPro = false // TODO: wire to RevenueCat
+    @StateObject private var subscriptionManager = SubscriptionManager.shared
+    @State private var showPaywall = false
 
     var body: some View {
         ScrollView {
@@ -16,7 +17,7 @@ struct SpeciesDetailView: View {
                 propertiesGrid
                 commonUsesSection
 
-                if isPro {
+                if subscriptionManager.isProUser {
                     priceRangeSection
                     geographicOriginSection
                     confusedWithSection
@@ -36,6 +37,9 @@ struct SpeciesDetailView: View {
                     Image(systemName: "square.and.arrow.up")
                 }
             }
+        }
+        .fullScreenCover(isPresented: $showPaywall) {
+            PaywallView(isDismissable: true)
         }
         .sheet(isPresented: $showHardnessComparison) {
             HardnessComparisonSheet(species: species)
@@ -324,7 +328,7 @@ struct SpeciesDetailView: View {
                     .foregroundStyle(.secondary)
                     .multilineTextAlignment(.center)
                 Button {
-                    // TODO: show paywall
+                    showPaywall = true
                 } label: {
                     Text("Upgrade to Pro")
                         .font(.headline)
@@ -343,7 +347,7 @@ struct SpeciesDetailView: View {
 
     private var actionButtons: some View {
         VStack(spacing: 10) {
-            if isPro {
+            if subscriptionManager.isProUser {
                 Button {
                     species.savedToCollection.toggle()
                     try? modelContext.save()

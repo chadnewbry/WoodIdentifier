@@ -8,8 +8,8 @@ struct ScanHistoryView: View {
 
     @State private var selectedTab: HistoryTab = .history
     @State private var searchText = ""
-    @State private var isPro = false // TODO: wire to RevenueCat
-    @State private var showUpgradePrompt = false
+    @StateObject private var subscriptionManager = SubscriptionManager.shared
+    @State private var showPaywall = false
     @State private var selectedScan: ScanResult?
 
     enum HistoryTab: String, CaseIterable {
@@ -21,7 +21,7 @@ struct ScanHistoryView: View {
         let scans = searchText.isEmpty ? allScans : allScans.filter {
             $0.topMatch?.commonName.localizedCaseInsensitiveContains(searchText) == true
         }
-        return isPro ? scans : Array(scans.prefix(10))
+        return subscriptionManager.isProUser ? scans : Array(scans.prefix(10))
     }
 
     private var recentScans: [ScanResult] {
@@ -47,6 +47,9 @@ struct ScanHistoryView: View {
             }
             .navigationTitle("My Scans")
             .searchable(text: $searchText, prompt: "Search species or date")
+            .fullScreenCover(isPresented: $showPaywall) {
+                PaywallView(isDismissable: true)
+            }
             .sheet(item: $selectedScan) { scan in
                 ScanDetailSheet(scan: scan)
             }
@@ -59,7 +62,7 @@ struct ScanHistoryView: View {
         HStack(spacing: 20) {
             StatPill(value: "\(allScans.count)", label: "Scans")
             StatPill(value: "\(uniqueSpeciesCount)", label: "Species")
-            if isPro {
+            if subscriptionManager.isProUser {
                 StatPill(value: "\(collectionItems.count)", label: "Saved")
             }
         }
@@ -101,7 +104,7 @@ struct ScanHistoryView: View {
 
                     // Full list
                     ForEach(Array(filteredScans.enumerated()), id: \.element.id) { index, scan in
-                        if !isPro && index == 10 {
+                        if !subscriptionManager.isProUser && index == 10 {
                             upgradePromptRow
                         } else {
                             ScanHistoryRow(scan: scan)
@@ -153,7 +156,7 @@ struct ScanHistoryView: View {
                     .foregroundStyle(.secondary)
                     .multilineTextAlignment(.center)
                 Button("Upgrade to Pro") {
-                    showUpgradePrompt = true
+                    showPaywall = true
                 }
                 .buttonStyle(.borderedProminent)
                 .tint(.orange)
@@ -166,14 +169,14 @@ struct ScanHistoryView: View {
 
     @ViewBuilder
     private var collectionContent: some View {
-        if !isPro {
+        if !subscriptionManager.isProUser {
             ContentUnavailableView {
                 Label("Pro Feature", systemImage: "star.fill")
             } description: {
                 Text("Upgrade to Pro to save species to your collection with notes and project tags.")
             } actions: {
                 Button("Upgrade to Pro") {
-                    showUpgradePrompt = true
+                    showPaywall = true
                 }
                 .buttonStyle(.borderedProminent)
                 .tint(.orange)

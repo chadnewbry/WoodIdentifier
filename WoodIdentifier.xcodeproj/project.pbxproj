@@ -55,6 +55,9 @@
 		F50005 /* ScanDetailSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50006 /* ScanDetailSheet.swift */; };
 		F50007 /* AddToCollectionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50008 /* AddToCollectionSheet.swift */; };
 		F50009 /* CollectionItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50010 /* CollectionItemRow.swift */; };
+		SUB001B /* SubscriptionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = SUB001 /* SubscriptionManager.swift */; };
+		SUB002B /* ReviewPromptManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = SUB002 /* ReviewPromptManager.swift */; };
+		SUB003B /* PaywallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = SUB003 /* PaywallView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -107,6 +110,10 @@
 		F50006 /* ScanDetailSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanDetailSheet.swift; sourceTree = "<group>"; };
 		F50008 /* AddToCollectionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToCollectionSheet.swift; sourceTree = "<group>"; };
 		F50010 /* CollectionItemRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionItemRow.swift; sourceTree = "<group>"; };
+		SUB001 /* SubscriptionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionManager.swift; sourceTree = "<group>"; };
+		SUB002 /* ReviewPromptManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewPromptManager.swift; sourceTree = "<group>"; };
+		SUB003 /* PaywallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallView.swift; sourceTree = "<group>"; };
+		SUB005 /* WoodSnapProducts.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = WoodSnapProducts.storekit; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +160,7 @@
 				E10004 /* Views */,
 				E10010 /* Models */,
 				E10011 /* Services */,
+				SUB005 /* WoodSnapProducts.storekit */,
 				E10013 /* Resources */,
 				B10011 /* Assets.xcassets */,
 				E10012 /* Preview Content */,
@@ -191,6 +199,7 @@
 				E10007 /* Database */,
 				E10008 /* Projects */,
 				E10009 /* Settings */,
+				SUB004 /* Paywall */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -275,6 +284,8 @@
 				D30002 /* WoodCompareService.swift */,
 				D30004 /* WoodSearchService.swift */,
 				D30006 /* WoodSpeciesDatabaseService.swift */,
+				SUB001 /* SubscriptionManager.swift */,
+				SUB002 /* ReviewPromptManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -301,6 +312,14 @@
 				C10001 /* WoodIdentifier.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		SUB004 /* Paywall */ = {
+			isa = PBXGroup;
+			children = (
+				SUB003 /* PaywallView.swift */,
+			);
+			path = Paywall;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -374,6 +393,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				SUB001B /* SubscriptionManager.swift in Sources */,
+				SUB002B /* ReviewPromptManager.swift in Sources */,
+				SUB003B /* PaywallView.swift in Sources */,
 				A10001 /* WoodIdentifierApp.swift in Sources */,
 				A10002 /* ContentView.swift in Sources */,
 				A10003 /* CameraView.swift in Sources */,
