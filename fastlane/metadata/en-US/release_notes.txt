@@ -1,0 +1,7 @@
+Welcome to WoodSnap! 🌳
+
+• AI-powered wood identification from photos
+• 200+ wood species database with detailed profiles
+• Side-by-side species comparison tool
+• Janka hardness scale for every species
+• Smart search with filters for hardness, density, and price

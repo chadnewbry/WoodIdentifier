@@ -1,0 +1,3 @@
+app_identifier("com.chadnewbry.woodidentifier")
+apple_id("chad.newbry@gmail.com")
+team_id("YOUR_TEAM_ID")  # Will be filled by human
