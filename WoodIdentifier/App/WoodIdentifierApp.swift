@@ -5,11 +5,13 @@ import SwiftData
 struct WoodIdentifierApp: App {
     @AppStorage("hasCompletedOnboarding") private var hasCompletedOnboarding = false
     @State private var showProfileSetup = false
+    @StateObject private var subscriptionManager = SubscriptionManager.shared
 
     var body: some Scene {
         WindowGroup {
             if hasCompletedOnboarding {
                 ContentView()
+                    .environmentObject(subscriptionManager)
                     .sheet(isPresented: $showProfileSetup) {
                         UserProfileSetupView(isPresented: $showProfileSetup)
                     }
@@ -28,8 +30,7 @@ struct WoodIdentifierApp: App {
             WoodProperty.self,
             WoodProject.self,
             WoodImage.self,
-            ScanResult.self,
-            CollectionItem.self
+            ScanResult.self
         ])
     }
 }

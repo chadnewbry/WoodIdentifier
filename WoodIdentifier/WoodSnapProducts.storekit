@@ -1,0 +1,95 @@
+{
+  "identifier" : "com.chadnewbry.woodidentifier.products",
+  "type" : "Configuration",
+  "version" : 3,
+  "subscriptionGroups" : [
+    {
+      "id" : "woodsnap_pro",
+      "localizations" : [
+        {
+          "description" : "WoodSnap Pro",
+          "displayName" : "WoodSnap Pro",
+          "locale" : "en_US"
+        }
+      ],
+      "name" : "WoodSnap Pro",
+      "subscriptions" : [
+        {
+          "adHocOffers" : [],
+          "codeOffers" : [],
+          "displayPrice" : "3.99",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "weekly_001",
+          "introductoryOffer" : {
+            "internalID" : "weekly_trial",
+            "paymentMode" : "free",
+            "subscriptionPeriod" : "P3D"
+          },
+          "localizations" : [
+            {
+              "description" : "Weekly access to WoodSnap Pro",
+              "displayName" : "WoodSnap Pro Weekly",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "com.chadnewbry.woodidentifier.pro.weekly",
+          "recurringSubscriptionPeriod" : "P1W",
+          "referenceName" : "WoodSnap Pro Weekly",
+          "subscriptionGroupID" : "woodsnap_pro",
+          "type" : "RecurringSubscription"
+        },
+        {
+          "adHocOffers" : [],
+          "codeOffers" : [],
+          "displayPrice" : "9.99",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "monthly_001",
+          "introductoryOffer" : {
+            "internalID" : "monthly_trial",
+            "paymentMode" : "free",
+            "subscriptionPeriod" : "P3D"
+          },
+          "localizations" : [
+            {
+              "description" : "Monthly access to WoodSnap Pro",
+              "displayName" : "WoodSnap Pro Monthly",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "com.chadnewbry.woodidentifier.pro.monthly",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "WoodSnap Pro Monthly",
+          "subscriptionGroupID" : "woodsnap_pro",
+          "type" : "RecurringSubscription"
+        },
+        {
+          "adHocOffers" : [],
+          "codeOffers" : [],
+          "displayPrice" : "39.99",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "annual_001",
+          "introductoryOffer" : {
+            "internalID" : "annual_trial",
+            "paymentMode" : "free",
+            "subscriptionPeriod" : "P3D"
+          },
+          "localizations" : [
+            {
+              "description" : "Annual access to WoodSnap Pro",
+              "displayName" : "WoodSnap Pro Annual",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "com.chadnewbry.woodidentifier.pro.annual",
+          "recurringSubscriptionPeriod" : "P1Y",
+          "referenceName" : "WoodSnap Pro Annual",
+          "subscriptionGroupID" : "woodsnap_pro",
+          "type" : "RecurringSubscription"
+        }
+      ]
+    }
+  ]
+}

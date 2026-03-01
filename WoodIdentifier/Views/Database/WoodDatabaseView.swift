@@ -5,6 +5,8 @@ struct WoodDatabaseView: View {
     @Query(sort: \WoodSpecies.name) private var allSpecies: [WoodSpecies]
     @State private var viewModel = BrowseViewModel()
     @State private var displayLimit = 50
+    @StateObject private var subscriptionManager = SubscriptionManager.shared
+    @State private var showPaywall = false
 
     private var filteredSpecies: [WoodSpecies] {
         viewModel.filteredAndSorted(allSpecies)
@@ -84,6 +86,9 @@ struct WoodDatabaseView: View {
                 }
                 .navigationTitle("Database")
                 .searchable(text: $viewModel.searchText, prompt: "Search by name or scientific name")
+                .fullScreenCover(isPresented: $showPaywall) {
+                    PaywallView(isDismissable: true)
+                }
                 .onSubmit(of: .search) {
                     viewModel.addRecentSearch(viewModel.searchText)
                 }
@@ -182,7 +187,7 @@ struct WoodDatabaseView: View {
     private var gridView: some View {
         LazyVGrid(columns: gridColumns, spacing: 12) {
             ForEach(Array(filteredSpecies.prefix(displayLimit).enumerated()), id: \.element.id) { index, species in
-                let isFree = index < freeSpeciesCount || species.isFreeSpecies
+                let isFree = subscriptionManager.isProUser || index < freeSpeciesCount || species.isFreeSpecies
                 let isSelected = viewModel.compareSelections.contains(where: { $0.id == species.id })
 
                 if viewModel.isCompareMode {
@@ -215,7 +220,7 @@ struct WoodDatabaseView: View {
     private var listView: some View {
         LazyVStack(spacing: 0) {
             ForEach(Array(filteredSpecies.prefix(displayLimit).enumerated()), id: \.element.id) { index, species in
-                let isFree = index < freeSpeciesCount || species.isFreeSpecies
+                let isFree = subscriptionManager.isProUser || index < freeSpeciesCount || species.isFreeSpecies
                 let isSelected = viewModel.compareSelections.contains(where: { $0.id == species.id })
 
                 if viewModel.isCompareMode {
