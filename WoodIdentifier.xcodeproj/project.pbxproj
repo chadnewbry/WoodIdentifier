@@ -14,6 +14,7 @@
 		A10005 /* WoodDatabaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10005 /* WoodDatabaseView.swift */; };
 		A10006 /* ProjectTrackingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10006 /* ProjectTrackingView.swift */; };
 		A10007 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10007 /* SettingsView.swift */; };
+		A10050 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10050 /* SettingsViewModel.swift */; };
 		A10008 /* WoodSpecies.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10008 /* WoodSpecies.swift */; };
 		A10009 /* WoodProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10009 /* WoodProject.swift */; };
 		A10010 /* WoodIdentificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10010 /* WoodIdentificationService.swift */; };
@@ -68,6 +69,7 @@
 		B10005 /* WoodDatabaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoodDatabaseView.swift; sourceTree = "<group>"; };
 		B10006 /* ProjectTrackingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectTrackingView.swift; sourceTree = "<group>"; };
 		B10007 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		B10050 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		B10008 /* WoodSpecies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoodSpecies.swift; sourceTree = "<group>"; };
 		B10009 /* WoodProject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoodProject.swift; sourceTree = "<group>"; };
 		B10010 /* WoodIdentificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoodIdentificationService.swift; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 			isa = PBXGroup;
 			children = (
 				B10007 /* SettingsView.swift */,
+				B10050 /* SettingsViewModel.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -380,6 +383,7 @@
 				A10005 /* WoodDatabaseView.swift in Sources */,
 				A10006 /* ProjectTrackingView.swift in Sources */,
 				A10007 /* SettingsView.swift in Sources */,
+				A10050 /* SettingsViewModel.swift in Sources */,
 				A10008 /* WoodSpecies.swift in Sources */,
 				A10009 /* WoodProject.swift in Sources */,
 				A1B2C3D400000002 /* OnboardingView.swift in Sources */,
