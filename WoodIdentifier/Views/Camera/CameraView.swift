@@ -3,6 +3,7 @@ import PhotosUI
 import AVFoundation
 
 struct CameraView: View {
+    @Environment(\.modelContext) private var modelContext
     @State private var showTutorial = !UserDefaults.standard.bool(forKey: "hasSeenFirstScanTutorial")
     @StateObject private var cameraManager = CameraManager()
     @StateObject private var networkMonitor = NetworkMonitor.shared
@@ -424,9 +425,11 @@ struct CameraView: View {
         do {
             let result = try await identificationService.identifyFromMultiplePhotos(selectedPhotos)
             quotaManager.recordScan()
+            let photoData = selectedPhotos.first?.jpegData(compressionQuality: 0.7) ?? Data()
             await MainActor.run {
                 withAnimation { isIdentifying = false }
                 identificationResult = result
+                try? ScanResult.create(from: result, photoData: photoData, in: modelContext)
                 ReviewPromptManager.requestReviewIfAppropriate()
             }
         } catch let error as WoodIdentificationError {
