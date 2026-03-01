@@ -49,6 +49,7 @@ private final class CachedMatches {
 // MARK: - Implementation
 
 /// Orchestrates cloud and offline wood identification with quota tracking and caching.
+@MainActor
 final class WoodIdentificationService: WoodIdentificationServiceProtocol {
     static let shared = WoodIdentificationService()
 

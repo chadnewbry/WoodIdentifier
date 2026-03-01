@@ -39,7 +39,8 @@ struct WoodMatch: Identifiable, Codable, Hashable {
 }
 
 /// Metadata returned alongside identification results.
-struct IdentificationResult {
+struct IdentificationResult: Identifiable {
+    let id = UUID()
     let matches: [WoodMatch]
     let isOfflineResult: Bool
     let scansRemaining: Int

@@ -2,6 +2,7 @@ import Foundation
 
 /// Tracks daily free scan quota (3 scans/day) persisted in UserDefaults.
 /// Pro users bypass all limits.
+@MainActor
 final class ScanQuotaManager: ObservableObject {
     static let shared = ScanQuotaManager()
 

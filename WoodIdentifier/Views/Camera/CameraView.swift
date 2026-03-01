@@ -11,7 +11,6 @@ struct CameraView: View {
     @State private var isIdentifying = false
     @State private var identificationResult: IdentificationResult?
     @State private var errorMessage: String?
-    @State private var showResults = false
     @State private var pickerItems: [PhotosPickerItem] = []
     @State private var flashEnabled = false
     @State private var showPaywall = false
@@ -102,10 +101,8 @@ struct CameraView: View {
         } message: {
             Text(errorMessage ?? "")
         }
-        .sheet(isPresented: $showResults) {
-            if let result = identificationResult {
-                ScanResultsSheet(result: result, photos: selectedPhotos)
-            }
+        .sheet(item: $identificationResult) { result in
+            ScanResultsSheet(result: result, photos: selectedPhotos)
         }
         .fullScreenCover(isPresented: $showPaywall) {
             PaywallView(isDismissable: true)
@@ -431,7 +428,6 @@ struct CameraView: View {
             await MainActor.run {
                 withAnimation { isIdentifying = false }
                 identificationResult = result
-                showResults = true
                 ReviewPromptManager.requestReviewIfAppropriate()
             }
         } catch let error as WoodIdentificationError {

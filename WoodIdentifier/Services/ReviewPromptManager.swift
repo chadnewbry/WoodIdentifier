@@ -2,6 +2,7 @@ import StoreKit
 import Foundation
 
 /// Prompts for App Store review after 3rd successful scan, once per app version.
+@MainActor
 enum ReviewPromptManager {
     private static let reviewedVersionKey = "lastReviewPromptVersion"
 
