@@ -42,6 +42,13 @@
 		D30007 /* wood_species.json in Resources */ = {isa = PBXBuildFile; fileRef = D30008 /* wood_species.json */; };
 		C20001 /* CameraPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20002 /* CameraPreviewView.swift */; };
 		C20003 /* TreeRingLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20004 /* TreeRingLoadingView.swift */; };
+		E20001 /* BrowseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20002 /* BrowseViewModel.swift */; };
+		E20003 /* FilterChipsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20004 /* FilterChipsView.swift */; };
+		E20005 /* SpeciesGridCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20006 /* SpeciesGridCard.swift */; };
+		E20007 /* JankaScaleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20008 /* JankaScaleView.swift */; };
+		E20009 /* CompareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20010 /* CompareView.swift */; };
+		E20011 /* BestWoodForView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20012 /* BestWoodForView.swift */; };
+		E20013 /* WoodOfTheDayCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20014 /* WoodOfTheDayCard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +88,13 @@
 		D30004 /* WoodSearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoodSearchService.swift; sourceTree = "<group>"; };
 		D30006 /* WoodSpeciesDatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoodSpeciesDatabaseService.swift; sourceTree = "<group>"; };
 		D30008 /* wood_species.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = wood_species.json; sourceTree = "<group>"; };
+		E20002 /* BrowseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseViewModel.swift; sourceTree = "<group>"; };
+		E20004 /* FilterChipsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterChipsView.swift; sourceTree = "<group>"; };
+		E20006 /* SpeciesGridCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeciesGridCard.swift; sourceTree = "<group>"; };
+		E20008 /* JankaScaleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JankaScaleView.swift; sourceTree = "<group>"; };
+		E20010 /* CompareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareView.swift; sourceTree = "<group>"; };
+		E20012 /* BestWoodForView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestWoodForView.swift; sourceTree = "<group>"; };
+		E20014 /* WoodOfTheDayCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoodOfTheDayCard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +193,13 @@
 			isa = PBXGroup;
 			children = (
 				B10005 /* WoodDatabaseView.swift */,
+				E20002 /* BrowseViewModel.swift */,
+				E20004 /* FilterChipsView.swift */,
+				E20006 /* SpeciesGridCard.swift */,
+				E20008 /* JankaScaleView.swift */,
+				E20010 /* CompareView.swift */,
+				E20012 /* BestWoodForView.swift */,
+				E20014 /* WoodOfTheDayCard.swift */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -359,6 +380,13 @@
 				D30001 /* WoodCompareService.swift in Sources */,
 				D30003 /* WoodSearchService.swift in Sources */,
 				D30005 /* WoodSpeciesDatabaseService.swift in Sources */,
+				E20001 /* BrowseViewModel.swift in Sources */,
+				E20003 /* FilterChipsView.swift in Sources */,
+				E20005 /* SpeciesGridCard.swift in Sources */,
+				E20007 /* JankaScaleView.swift in Sources */,
+				E20009 /* CompareView.swift in Sources */,
+				E20011 /* BestWoodForView.swift in Sources */,
+				E20013 /* WoodOfTheDayCard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
