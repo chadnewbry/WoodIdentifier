@@ -6,7 +6,7 @@ struct ScanDetailSheet: View {
     let scan: ScanResult
     @Environment(\.dismiss) private var dismiss
     @Environment(\.modelContext) private var modelContext
-    @State private var isPro = false // TODO: wire RevenueCat
+    @StateObject private var subscriptionManager = SubscriptionManager.shared
     @State private var showAddToCollection = false
 
     var body: some View {
@@ -75,7 +75,7 @@ struct ScanDetailSheet: View {
                     }
                     .padding(.horizontal)
 
-                    if isPro {
+                    if subscriptionManager.isProUser {
                         Button {
                             showAddToCollection = true
                         } label: {

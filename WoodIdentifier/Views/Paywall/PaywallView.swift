@@ -120,8 +120,8 @@ struct PaywallView: View {
                         .foregroundStyle(.white.opacity(0.7))
 
                         HStack(spacing: 16) {
-                            Link("Privacy Policy", destination: URL(string: "https://example.com/privacy")!)
-                            Link("Terms of Use", destination: URL(string: "https://example.com/terms")!)
+                            Link("Privacy Policy", destination: URL(string: "https://chadnewbry.github.io/WoodIdentifier/privacy")!)
+                            Link("Terms of Use", destination: URL(string: "https://chadnewbry.github.io/WoodIdentifier/terms")!)
                         }
                         .font(.caption)
                         .foregroundStyle(.white.opacity(0.5))
