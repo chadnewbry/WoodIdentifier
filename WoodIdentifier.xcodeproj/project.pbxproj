@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		24F857FE2F54F1D800F6A896 /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = 24F857FD2F54F1D800F6A896 /* RevenueCat */; };
+		24F858002F54F1D800F6A896 /* RevenueCatUI in Frameworks */ = {isa = PBXBuildFile; productRef = 24F857FF2F54F1D800F6A896 /* RevenueCatUI */; };
 		A10001 /* WoodIdentifierApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10001 /* WoodIdentifierApp.swift */; };
 		A10002 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10002 /* ContentView.swift */; };
 		A10003 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10003 /* CameraView.swift */; };
@@ -14,7 +16,6 @@
 		A10005 /* WoodDatabaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10005 /* WoodDatabaseView.swift */; };
 		A10006 /* ProjectTrackingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10006 /* ProjectTrackingView.swift */; };
 		A10007 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10007 /* SettingsView.swift */; };
-		A10050 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10050 /* SettingsViewModel.swift */; };
 		A10008 /* WoodSpecies.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10008 /* WoodSpecies.swift */; };
 		A10009 /* WoodProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10009 /* WoodProject.swift */; };
 		A10010 /* WoodIdentificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10010 /* WoodIdentificationService.swift */; };
@@ -33,16 +34,17 @@
 		A10032 /* PersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10032 /* PersistenceService.swift */; };
 		A10040 /* ScanResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10040 /* ScanResult.swift */; };
 		A10041 /* CameraPermissionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10041 /* CameraPermissionManager.swift */; };
+		A10050 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10050 /* SettingsViewModel.swift */; };
 		A1B2C3D400000002 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D400000001 /* OnboardingView.swift */; };
 		A1B2C3D400000004 /* UserProfileSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D400000003 /* UserProfileSetupView.swift */; };
 		A1B2C3D400000006 /* FirstScanTutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D400000005 /* FirstScanTutorialView.swift */; };
 		B94A2EA0BC2248F18FD4941F /* SpeciesDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFA0A7F82CA4541806D7107 /* SpeciesDetailView.swift */; };
+		C20001 /* CameraPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20002 /* CameraPreviewView.swift */; };
+		C20003 /* TreeRingLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20004 /* TreeRingLoadingView.swift */; };
 		D30001 /* WoodCompareService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30002 /* WoodCompareService.swift */; };
 		D30003 /* WoodSearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30004 /* WoodSearchService.swift */; };
 		D30005 /* WoodSpeciesDatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30006 /* WoodSpeciesDatabaseService.swift */; };
 		D30007 /* wood_species.json in Resources */ = {isa = PBXBuildFile; fileRef = D30008 /* wood_species.json */; };
-		C20001 /* CameraPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20002 /* CameraPreviewView.swift */; };
-		C20003 /* TreeRingLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20004 /* TreeRingLoadingView.swift */; };
 		E20001 /* BrowseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20002 /* BrowseViewModel.swift */; };
 		E20003 /* FilterChipsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20004 /* FilterChipsView.swift */; };
 		E20005 /* SpeciesGridCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20006 /* SpeciesGridCard.swift */; };
@@ -72,7 +74,6 @@
 		B10005 /* WoodDatabaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoodDatabaseView.swift; sourceTree = "<group>"; };
 		B10006 /* ProjectTrackingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectTrackingView.swift; sourceTree = "<group>"; };
 		B10007 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		B10050 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		B10008 /* WoodSpecies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoodSpecies.swift; sourceTree = "<group>"; };
 		B10009 /* WoodProject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoodProject.swift; sourceTree = "<group>"; };
 		B10010 /* WoodIdentificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoodIdentificationService.swift; sourceTree = "<group>"; };
@@ -91,6 +92,7 @@
 		B10032 /* PersistenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceService.swift; sourceTree = "<group>"; };
 		B10040 /* ScanResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanResult.swift; sourceTree = "<group>"; };
 		B10041 /* CameraPermissionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPermissionManager.swift; sourceTree = "<group>"; };
+		B10050 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		C10001 /* WoodIdentifier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WoodIdentifier.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C20002 /* CameraPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreviewView.swift; sourceTree = "<group>"; };
 		C20004 /* TreeRingLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeRingLoadingView.swift; sourceTree = "<group>"; };
@@ -121,6 +123,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24F858002F54F1D800F6A896 /* RevenueCatUI in Frameworks */,
+				24F857FE2F54F1D800F6A896 /* RevenueCat in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,17 +179,6 @@
 				B10002 /* ContentView.swift */,
 			);
 			path = App;
-			sourceTree = "<group>";
-		};
-		F50011 /* History */ = {
-			isa = PBXGroup;
-			children = (
-				F50004 /* ScanHistoryView.swift */,
-				F50006 /* ScanDetailSheet.swift */,
-				F50008 /* AddToCollectionSheet.swift */,
-				F50010 /* CollectionItemRow.swift */,
-			);
-			path = History;
 			sourceTree = "<group>";
 		};
 		E10004 /* Views */ = {
@@ -314,6 +307,17 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		F50011 /* History */ = {
+			isa = PBXGroup;
+			children = (
+				F50004 /* ScanHistoryView.swift */,
+				F50006 /* ScanDetailSheet.swift */,
+				F50008 /* AddToCollectionSheet.swift */,
+				F50010 /* CollectionItemRow.swift */,
+			);
+			path = History;
+			sourceTree = "<group>";
+		};
 		SUB004 /* Paywall */ = {
 			isa = PBXGroup;
 			children = (
@@ -366,6 +370,9 @@
 				Base,
 			);
 			mainGroup = E10001;
+			packageReferences = (
+				24F857FC2F54F1D800F6A896 /* XCRemoteSwiftPackageReference "purchases-ios-spm" */,
+			);
 			productRefGroup = E10099 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -586,6 +593,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		24F857FC2F54F1D800F6A896 /* XCRemoteSwiftPackageReference "purchases-ios-spm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RevenueCat/purchases-ios-spm.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.60.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		24F857FD2F54F1D800F6A896 /* RevenueCat */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 24F857FC2F54F1D800F6A896 /* XCRemoteSwiftPackageReference "purchases-ios-spm" */;
+			productName = RevenueCat;
+		};
+		24F857FF2F54F1D800F6A896 /* RevenueCatUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 24F857FC2F54F1D800F6A896 /* XCRemoteSwiftPackageReference "purchases-ios-spm" */;
+			productName = RevenueCatUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = H10001 /* Project object */;
 }

@@ -7,6 +7,10 @@ struct WoodIdentifierApp: App {
     @State private var showProfileSetup = false
     @StateObject private var subscriptionManager = SubscriptionManager.shared
 
+    init() {
+        SubscriptionManager.shared.configure()
+    }
+
     var body: some Scene {
         WindowGroup {
             if hasCompletedOnboarding {
