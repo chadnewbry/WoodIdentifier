@@ -107,6 +107,7 @@ final class WoodIdentificationService: WoodIdentificationServiceProtocol {
                 matches = try await cloudService.identify(imagesData: processed)
                 usedOffline = false
             } catch {
+                print("[WoodID] Cloud identification failed: \(error)")
                 // Attempt offline fallback on network failure
                 let fallback = try? await fallbackService.identify(imageData: processed[0])
                 if let fallback, !fallback.isEmpty {

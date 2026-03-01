@@ -21,7 +21,8 @@ final class CloudVisionService {
     workability, durability, or other notable characteristics
 
     Consider grain pattern, color, texture, pore structure, end grain, and bark if visible.
-    Respond ONLY with a JSON array of exactly 3 objects. No markdown, no code fences, no explanation.
+    Respond ONLY with a JSON object containing a "matches" key whose value is an array of exactly 3 objects. No markdown, no code fences, no explanation.
+    Example format: {"matches": [...]}
     """
 
     func identify(imagesData: [Data]) async throws -> [WoodMatch] {
@@ -51,7 +52,7 @@ final class CloudVisionService {
         var request = URLRequest(url: endpoint)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.timeoutInterval = 30
+        request.timeoutInterval = 60
         request.httpBody = try JSONSerialization.data(withJSONObject: body)
 
         let (data, response) = try await URLSession.shared.data(for: request)
@@ -91,10 +92,18 @@ final class CloudVisionService {
            let direct = try? JSONSerialization.jsonObject(with: jsonData) as? [[String: Any]] {
             array = direct
         } else if let jsonData = cleaned.data(using: .utf8),
-                  let wrapped = try? JSONSerialization.jsonObject(with: jsonData) as? [String: Any],
-                  let inner = (wrapped["results"] ?? wrapped["matches"] ?? wrapped["species"]) as? [[String: Any]] {
-            array = inner
+                  let wrapped = try? JSONSerialization.jsonObject(with: jsonData) as? [String: Any] {
+            // Try common wrapper keys, then fall back to first array value found
+            if let inner = (wrapped["results"] ?? wrapped["matches"] ?? wrapped["species"]) as? [[String: Any]] {
+                array = inner
+            } else if let inner = wrapped.values.first(where: { $0 is [[String: Any]] }) as? [[String: Any]] {
+                array = inner
+            } else {
+                print("[WoodID] Unexpected response structure: \(wrapped.keys)")
+                throw WoodIdentificationError.malformedResponse
+            }
         } else {
+            print("[WoodID] Could not parse response: \(cleaned.prefix(200))")
             throw WoodIdentificationError.malformedResponse
         }
 
