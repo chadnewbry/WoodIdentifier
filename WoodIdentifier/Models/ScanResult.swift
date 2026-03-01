@@ -14,6 +14,12 @@ final class ScanResult {
     /// Species name entered by the user when correcting an identification.
     var userCorrectedSpecies: String?
     var freeScansRemaining: Int
+    /// Human-readable location string (e.g., "Brooklyn, NY").
+    var locationName: String?
+    /// Latitude of the scan location.
+    var latitude: Double?
+    /// Longitude of the scan location.
+    var longitude: Double?
 
     init(
         id: UUID = UUID(),
@@ -22,7 +28,10 @@ final class ScanResult {
         photoData: Data,
         isOfflineResult: Bool = false,
         userCorrectedSpecies: String? = nil,
-        freeScansRemaining: Int = 0
+        freeScansRemaining: Int = 0,
+        locationName: String? = nil,
+        latitude: Double? = nil,
+        longitude: Double? = nil
     ) {
         self.id = id
         self.scanDate = scanDate
@@ -31,6 +40,9 @@ final class ScanResult {
         self.isOfflineResult = isOfflineResult
         self.userCorrectedSpecies = userCorrectedSpecies
         self.freeScansRemaining = freeScansRemaining
+        self.locationName = locationName
+        self.latitude = latitude
+        self.longitude = longitude
     }
 
     /// Decoded matches (convenience accessor).
