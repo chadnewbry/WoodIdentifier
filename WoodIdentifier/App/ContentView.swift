@@ -8,9 +8,9 @@ struct ContentView: View {
                     Label("Camera", systemImage: "camera")
                 }
 
-            ResultsView()
+            ScanHistoryView()
                 .tabItem {
-                    Label("Results", systemImage: "leaf.fill")
+                    Label("History", systemImage: "clock.arrow.circlepath")
                 }
 
             WoodDatabaseView()
