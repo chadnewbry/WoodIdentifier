@@ -11,6 +11,7 @@ struct ScanHistoryView: View {
     @StateObject private var subscriptionManager = SubscriptionManager.shared
     @State private var showPaywall = false
     @State private var selectedScan: ScanResult?
+    var switchToCamera: () -> Void = {}
 
     enum HistoryTab: String, CaseIterable {
         case history = "History"
@@ -92,7 +93,11 @@ struct ScanHistoryView: View {
             } description: {
                 Text("Scan your first wood! 📸")
             } actions: {
-                // Camera shortcut could go here
+                Button(action: switchToCamera) {
+                    Label("Start Scanning", systemImage: "camera.fill")
+                }
+                .buttonStyle(.borderedProminent)
+                .tint(.orange)
             }
         } else {
             ScrollView {
