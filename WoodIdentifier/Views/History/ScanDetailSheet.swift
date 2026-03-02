@@ -75,6 +75,15 @@ struct ScanDetailSheet: View {
                     }
                     .padding(.horizontal)
 
+                    // Compare shortcut
+                    if let topMatch = scan.topMatch {
+                        CompareFromScanButton(match: topMatch)
+                            .frame(maxWidth: .infinity)
+                            .padding(.vertical, 10)
+                            .background(.background, in: RoundedRectangle(cornerRadius: 12))
+                            .padding(.horizontal)
+                    }
+
                     if subscriptionManager.isProUser {
                         Button {
                             showAddToCollection = true

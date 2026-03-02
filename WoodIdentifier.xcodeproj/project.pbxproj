@@ -13,6 +13,7 @@
 		A10002 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10002 /* ContentView.swift */; };
 		A10003 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10003 /* CameraView.swift */; };
 		A10004 /* ResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10004 /* ResultsView.swift */; };
+		A10030 /* CompareFromScanButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10030 /* CompareFromScanButton.swift */; };
 		A10005 /* WoodDatabaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10005 /* WoodDatabaseView.swift */; };
 		A10006 /* ProjectTrackingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10006 /* ProjectTrackingView.swift */; };
 		A10007 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10007 /* SettingsView.swift */; };
@@ -73,6 +74,7 @@
 		B10002 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B10003 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		B10004 /* ResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsView.swift; sourceTree = "<group>"; };
+		B10030 /* CompareFromScanButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareFromScanButton.swift; sourceTree = "<group>"; };
 		B10005 /* WoodDatabaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoodDatabaseView.swift; sourceTree = "<group>"; };
 		B10006 /* ProjectTrackingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectTrackingView.swift; sourceTree = "<group>"; };
 		B10007 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 			isa = PBXGroup;
 			children = (
 				B10004 /* ResultsView.swift */,
+				B10030 /* CompareFromScanButton.swift */,
 			);
 			path = Results;
 			sourceTree = "<group>";
@@ -415,6 +418,7 @@
 				C20001 /* CameraPreviewView.swift in Sources */,
 				C20003 /* TreeRingLoadingView.swift in Sources */,
 				A10004 /* ResultsView.swift in Sources */,
+				A10030 /* CompareFromScanButton.swift in Sources */,
 				A10005 /* WoodDatabaseView.swift in Sources */,
 				A10006 /* ProjectTrackingView.swift in Sources */,
 				A10007 /* SettingsView.swift in Sources */,
