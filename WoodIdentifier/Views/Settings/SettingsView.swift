@@ -21,6 +21,7 @@ struct SettingsView: View {
                 preferencesSection
                 notificationsSection
                 scanSection
+                projectsSection
                 widgetsSection
                 supportSection
                 legalSection
@@ -164,6 +165,21 @@ struct SettingsView: View {
             }
         } header: {
             Text("Scanning")
+                .foregroundStyle(Color.woodBrown)
+        }
+    }
+
+    // MARK: - Projects Section
+
+    private var projectsSection: some View {
+        Section {
+            NavigationLink {
+                ProjectTrackingView()
+            } label: {
+                Label("Projects", systemImage: "hammer")
+            }
+        } header: {
+            Text("Projects")
                 .foregroundStyle(Color.woodBrown)
         }
     }
