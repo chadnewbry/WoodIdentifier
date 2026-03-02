@@ -39,6 +39,41 @@ struct WoodDatabaseView: View {
                         WoodOfTheDayCard(species: woodOfTheDay)
                             .padding(.top, 8)
 
+                        // Compare Woods promo banner
+                        if !viewModel.isCompareMode {
+                            ComparePromoBanner {
+                                withAnimation {
+                                    viewModel.isCompareMode = true
+                                    viewModel.compareSelections.removeAll()
+                                }
+                            }
+                        }
+
+                        // Compare mode instructions
+                        if viewModel.isCompareMode {
+                            HStack(spacing: 10) {
+                                Image(systemName: "info.circle.fill")
+                                    .foregroundStyle(.blue)
+                                Text("Tap two species to compare them side by side")
+                                    .font(.subheadline)
+                                    .foregroundStyle(.secondary)
+                                Spacer()
+                                Button("Cancel") {
+                                    withAnimation {
+                                        viewModel.isCompareMode = false
+                                        viewModel.compareSelections.removeAll()
+                                    }
+                                }
+                                .font(.subheadline.weight(.medium))
+                            }
+                            .padding()
+                            .background(
+                                RoundedRectangle(cornerRadius: 12)
+                                    .fill(Color.blue.opacity(0.08))
+                            )
+                            .padding(.horizontal)
+                        }
+
                         // Filter chips
                         FilterChipsView(viewModel: viewModel)
 
