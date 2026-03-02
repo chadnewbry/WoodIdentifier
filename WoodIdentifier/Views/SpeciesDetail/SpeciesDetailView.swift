@@ -4,6 +4,7 @@ import SwiftData
 struct SpeciesDetailView: View {
     @Bindable var species: WoodSpecies
     @State private var showHardnessComparison = false
+    @State private var showComparePicker = false
     @Environment(\.modelContext) private var modelContext
     @StateObject private var subscriptionManager = SubscriptionManager.shared
     @State private var showPaywall = false
@@ -44,6 +45,9 @@ struct SpeciesDetailView: View {
         .sheet(isPresented: $showHardnessComparison) {
             HardnessComparisonSheet(species: species)
                 .presentationDetents([.medium, .large])
+        }
+        .sheet(isPresented: $showComparePicker) {
+            ComparePickerView(sourceSpecies: species)
         }
     }
 
@@ -363,6 +367,17 @@ struct SpeciesDetailView: View {
                 .buttonStyle(.borderedProminent)
                 .tint(species.savedToCollection ? .gray : .blue)
             }
+
+            Button {
+                showComparePicker = true
+            } label: {
+                Label("Compare with Another Wood", systemImage: "arrow.left.arrow.right")
+                    .font(.headline)
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical, 12)
+            }
+            .buttonStyle(.borderedProminent)
+            .tint(.blue)
 
             NavigationLink {
                 CameraView()
