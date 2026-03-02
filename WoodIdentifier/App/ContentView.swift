@@ -18,11 +18,6 @@ struct ContentView: View {
                     Label("Database", systemImage: "books.vertical")
                 }
 
-            ProjectTrackingView()
-                .tabItem {
-                    Label("Projects", systemImage: "hammer")
-                }
-
             SettingsView()
                 .tabItem {
                     Label("Settings", systemImage: "gear")
