@@ -429,7 +429,7 @@ struct CameraView: View {
             await MainActor.run {
                 withAnimation { isIdentifying = false }
                 identificationResult = result
-                try? ScanResult.create(from: result, photoData: photoData, in: modelContext)
+                _ = try? ScanResult.create(from: result, photoData: photoData, in: modelContext)
                 ReviewPromptManager.requestReviewIfAppropriate()
             }
         } catch let error as WoodIdentificationError {
