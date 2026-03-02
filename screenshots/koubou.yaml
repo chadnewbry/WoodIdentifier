@@ -1,0 +1,93 @@
+# Koubou screenshot config for Wood Identifier
+# App Store screenshot compositions for wood species identification
+
+screenshots:
+  - name: camera-identify
+    output_size: "iPhone6_9"
+    background:
+      gradient:
+        colors: ["#4E342E", "#8D6E63"]
+        direction: "top_to_bottom"
+    device:
+      type: "iPhone 15 Pro Portrait"
+      screenshot: "raw/01-camera-identify.png"
+      position: "bottom-center"
+      offset_y: 180
+    text:
+      headline: "Identify Any Wood"
+      subtitle: "Point your camera and get instant results"
+      color: "#FFFFFF"
+      position: "top-center"
+      offset_y: 120
+
+  - name: species-detail
+    output_size: "iPhone6_9"
+    background:
+      gradient:
+        colors: ["#33691E", "#7CB342"]
+        direction: "top_to_bottom"
+    device:
+      type: "iPhone 15 Pro Portrait"
+      screenshot: "raw/02-species-detail.png"
+      position: "bottom-center"
+      offset_y: 180
+    text:
+      headline: "Species Details"
+      subtitle: "Grain patterns, hardness, and common uses"
+      color: "#FFFFFF"
+      position: "top-center"
+      offset_y: 120
+
+  - name: identification-history
+    output_size: "iPhone6_9"
+    background:
+      gradient:
+        colors: ["#BF360C", "#FF7043"]
+        direction: "top_to_bottom"
+    device:
+      type: "iPhone 15 Pro Portrait"
+      screenshot: "raw/03-identification-history.png"
+      position: "bottom-center"
+      offset_y: 180
+    text:
+      headline: "Track Your Finds"
+      subtitle: "Browse your identification history"
+      color: "#FFFFFF"
+      position: "top-center"
+      offset_y: 120
+
+  - name: wood-comparison
+    output_size: "iPhone6_9"
+    background:
+      gradient:
+        colors: ["#3E2723", "#A1887F"]
+        direction: "top_to_bottom"
+    device:
+      type: "iPhone 15 Pro Portrait"
+      screenshot: "raw/04-wood-comparison.png"
+      position: "bottom-center"
+      offset_y: 180
+    text:
+      headline: "Compare Species"
+      subtitle: "Side-by-side wood characteristics"
+      color: "#FFFFFF"
+      position: "top-center"
+      offset_y: 120
+
+  - name: settings
+    output_size: "iPhone6_9"
+    background:
+      gradient:
+        colors: ["#455A64", "#90A4AE"]
+        direction: "top_to_bottom"
+    device:
+      type: "iPhone 15 Pro Portrait"
+      screenshot: "raw/05-settings.png"
+      position: "bottom-center"
+      offset_y: 180
+    text:
+      headline: "Your Preferences"
+      subtitle: "Customize your experience"
+      color: "#FFFFFF"
+      position: "top-center"
+      offset_y: 120
