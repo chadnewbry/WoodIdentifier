@@ -612,6 +612,10 @@ struct ScanResultsSheet: View {
                     .font(.caption)
                     .foregroundStyle(.secondary)
             }
+
+            Divider()
+
+            CompareFromScanButton(match: match)
         }
         .padding()
         .background(.background, in: RoundedRectangle(cornerRadius: 16))
