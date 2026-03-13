@@ -8,6 +8,7 @@ struct ScanDetailSheet: View {
     @Environment(\.modelContext) private var modelContext
     @StateObject private var subscriptionManager = SubscriptionManager.shared
     @State private var showAddToCollection = false
+    @State private var showPaywall = false
 
     var body: some View {
         NavigationStack {
@@ -84,17 +85,19 @@ struct ScanDetailSheet: View {
                             .padding(.horizontal)
                     }
 
-                    if subscriptionManager.isProUser {
-                        Button {
+                    Button {
+                        if subscriptionManager.isProUser {
                             showAddToCollection = true
-                        } label: {
-                            Label("Save to Collection", systemImage: "bookmark.fill")
-                                .frame(maxWidth: .infinity)
+                        } else {
+                            showPaywall = true
                         }
-                        .buttonStyle(.borderedProminent)
-                        .tint(.orange)
-                        .padding(.horizontal)
+                    } label: {
+                        Label("Save to Collection", systemImage: "bookmark.fill")
+                            .frame(maxWidth: .infinity)
                     }
+                    .buttonStyle(.borderedProminent)
+                    .tint(.orange)
+                    .padding(.horizontal)
                 }
                 .padding(.vertical)
             }
@@ -106,6 +109,9 @@ struct ScanDetailSheet: View {
             }
             .sheet(isPresented: $showAddToCollection) {
                 AddToCollectionSheet(scan: scan)
+            }
+            .fullScreenCover(isPresented: $showPaywall) {
+                PaywallView(isDismissable: true)
             }
         }
     }
