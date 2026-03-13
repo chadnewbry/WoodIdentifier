@@ -512,7 +512,11 @@ struct ScanResultsSheet: View {
                             }
 
                             Button {
-                                // TODO: Pro-only save to collection
+                                if subscriptionManager.isProUser {
+                                    // TODO: Implement save to collection action
+                                } else {
+                                    showPaywall = true
+                                }
                             } label: {
                                 HStack {
                                     Image(systemName: "folder.badge.plus")

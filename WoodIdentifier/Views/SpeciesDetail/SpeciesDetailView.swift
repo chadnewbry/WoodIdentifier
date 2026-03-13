@@ -351,22 +351,24 @@ struct SpeciesDetailView: View {
 
     private var actionButtons: some View {
         VStack(spacing: 10) {
-            if subscriptionManager.isProUser {
-                Button {
+            Button {
+                if subscriptionManager.isProUser {
                     species.savedToCollection.toggle()
                     try? modelContext.save()
-                } label: {
-                    Label(
-                        species.savedToCollection ? "Saved to Collection" : "Save to Collection",
-                        systemImage: species.savedToCollection ? "bookmark.fill" : "bookmark"
-                    )
-                    .font(.headline)
-                    .frame(maxWidth: .infinity)
-                    .padding(.vertical, 12)
+                } else {
+                    showPaywall = true
                 }
-                .buttonStyle(.borderedProminent)
-                .tint(species.savedToCollection ? .gray : .blue)
+            } label: {
+                Label(
+                    species.savedToCollection ? "Saved to Collection" : "Save to Collection",
+                    systemImage: species.savedToCollection ? "bookmark.fill" : "bookmark"
+                )
+                .font(.headline)
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 12)
             }
+            .buttonStyle(.borderedProminent)
+            .tint(species.savedToCollection ? .gray : .blue)
 
             Button {
                 showComparePicker = true
