@@ -10,15 +10,32 @@ struct PaywallView: View {
     }
 
     var body: some View {
-        RevenueCatUI.PaywallView(displayCloseButton: isDismissable)
-            .onPurchaseCompleted { customerInfo in
-                SubscriptionManager.shared.isProUser = !customerInfo.activeSubscriptions.isEmpty
-                dismiss()
+        ZStack(alignment: .topTrailing) {
+            RevenueCatUI.PaywallView(displayCloseButton: false)
+                .onPurchaseCompleted { customerInfo in
+                    SubscriptionManager.shared.isProUser = !customerInfo.activeSubscriptions.isEmpty
+                    dismiss()
+                }
+                .onRestoreCompleted { customerInfo in
+                    SubscriptionManager.shared.isProUser = !customerInfo.activeSubscriptions.isEmpty
+                    dismiss()
+                }
+
+            if isDismissable {
+                Button {
+                    dismiss()
+                } label: {
+                    Image(systemName: "xmark.circle.fill")
+                        .font(.title2)
+                        .symbolRenderingMode(.palette)
+                        .foregroundStyle(.white, .black.opacity(0.5))
+                }
+                .padding(.top, 8)
+                .padding(.trailing, 16)
+                .accessibilityIdentifier("paywallDismissButton")
+                .accessibilityLabel("Close")
             }
-            .onRestoreCompleted { customerInfo in
-                SubscriptionManager.shared.isProUser = !customerInfo.activeSubscriptions.isEmpty
-                dismiss()
-            }
+        }
     }
 }
 
