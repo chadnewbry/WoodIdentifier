@@ -13,7 +13,7 @@
 		A10002 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10002 /* ContentView.swift */; };
 		A10003 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10003 /* CameraView.swift */; };
 		A10004 /* ResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10004 /* ResultsView.swift */; };
-		A10030 /* CompareFromScanButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10030 /* CompareFromScanButton.swift */; };
+		A10054 /* CompareFromScanButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10054 /* CompareFromScanButton.swift */; };
 		A10005 /* WoodDatabaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10005 /* WoodDatabaseView.swift */; };
 		A10006 /* ProjectTrackingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10006 /* ProjectTrackingView.swift */; };
 		A10007 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10007 /* SettingsView.swift */; };
@@ -51,10 +51,10 @@
 		E20005 /* SpeciesGridCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20006 /* SpeciesGridCard.swift */; };
 		E20007 /* JankaScaleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20008 /* JankaScaleView.swift */; };
 		E20009 /* CompareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20010 /* CompareView.swift */; };
-		E20017 /* ComparePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20018 /* ComparePickerView.swift */; };
-		E20015 /* ComparePromoBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20016 /* ComparePromoBanner.swift */; };
 		E20011 /* BestWoodForView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20012 /* BestWoodForView.swift */; };
 		E20013 /* WoodOfTheDayCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20014 /* WoodOfTheDayCard.swift */; };
+		E20015 /* ComparePromoBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20016 /* ComparePromoBanner.swift */; };
+		E20017 /* ComparePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20018 /* ComparePickerView.swift */; };
 		F50001 /* CollectionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50002 /* CollectionItem.swift */; };
 		F50003 /* ScanHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50004 /* ScanHistoryView.swift */; };
 		F50005 /* ScanDetailSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50006 /* ScanDetailSheet.swift */; };
@@ -66,6 +66,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		24E54D9C2F63AF7A00FAC1F6 /* WoodIdentifier.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WoodIdentifier.entitlements; sourceTree = "<group>"; };
 		8AFA0A7F82CA4541806D7107 /* SpeciesDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeciesDetailView.swift; sourceTree = "<group>"; };
 		A1B2C3D400000001 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		A1B2C3D400000003 /* UserProfileSetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileSetupView.swift; sourceTree = "<group>"; };
@@ -74,7 +75,7 @@
 		B10002 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B10003 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		B10004 /* ResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsView.swift; sourceTree = "<group>"; };
-		B10030 /* CompareFromScanButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareFromScanButton.swift; sourceTree = "<group>"; };
+		B10054 /* CompareFromScanButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareFromScanButton.swift; sourceTree = "<group>"; };
 		B10005 /* WoodDatabaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoodDatabaseView.swift; sourceTree = "<group>"; };
 		B10006 /* ProjectTrackingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectTrackingView.swift; sourceTree = "<group>"; };
 		B10007 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -109,10 +110,10 @@
 		E20006 /* SpeciesGridCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeciesGridCard.swift; sourceTree = "<group>"; };
 		E20008 /* JankaScaleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JankaScaleView.swift; sourceTree = "<group>"; };
 		E20010 /* CompareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareView.swift; sourceTree = "<group>"; };
-		E20018 /* ComparePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComparePickerView.swift; sourceTree = "<group>"; };
-		E20016 /* ComparePromoBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComparePromoBanner.swift; sourceTree = "<group>"; };
 		E20012 /* BestWoodForView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestWoodForView.swift; sourceTree = "<group>"; };
 		E20014 /* WoodOfTheDayCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoodOfTheDayCard.swift; sourceTree = "<group>"; };
+		E20016 /* ComparePromoBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComparePromoBanner.swift; sourceTree = "<group>"; };
+		E20018 /* ComparePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComparePickerView.swift; sourceTree = "<group>"; };
 		F50002 /* CollectionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionItem.swift; sourceTree = "<group>"; };
 		F50004 /* ScanHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanHistoryView.swift; sourceTree = "<group>"; };
 		F50006 /* ScanDetailSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanDetailSheet.swift; sourceTree = "<group>"; };
@@ -166,6 +167,7 @@
 		E10002 /* WoodIdentifier */ = {
 			isa = PBXGroup;
 			children = (
+				24E54D9C2F63AF7A00FAC1F6 /* WoodIdentifier.entitlements */,
 				E10003 /* App */,
 				E10004 /* Views */,
 				E10010 /* Models */,
@@ -217,7 +219,7 @@
 			isa = PBXGroup;
 			children = (
 				B10004 /* ResultsView.swift */,
-				B10030 /* CompareFromScanButton.swift */,
+				B10054 /* CompareFromScanButton.swift */,
 			);
 			path = Results;
 			sourceTree = "<group>";
@@ -418,7 +420,8 @@
 				C20001 /* CameraPreviewView.swift in Sources */,
 				C20003 /* TreeRingLoadingView.swift in Sources */,
 				A10004 /* ResultsView.swift in Sources */,
-				A10030 /* CompareFromScanButton.swift in Sources */,
+				A10054 /* CompareFromScanButton.swift in Sources */,
+				A10030 /* WoodImage.swift in Sources */,
 				A10005 /* WoodDatabaseView.swift in Sources */,
 				A10006 /* ProjectTrackingView.swift in Sources */,
 				A10007 /* SettingsView.swift in Sources */,
@@ -429,7 +432,6 @@
 				A1B2C3D400000004 /* UserProfileSetupView.swift in Sources */,
 				A1B2C3D400000006 /* FirstScanTutorialView.swift in Sources */,
 				A10010 /* WoodIdentificationService.swift in Sources */,
-				A10030 /* WoodImage.swift in Sources */,
 				A10031 /* WoodProperty.swift in Sources */,
 				A10032 /* PersistenceService.swift in Sources */,
 				A10020 /* WoodMatch.swift in Sources */,
@@ -532,6 +534,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = WoodIdentifier/WoodIdentifier.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WoodIdentifier/Preview Content\"";
@@ -560,6 +563,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = WoodIdentifier/WoodIdentifier.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WoodIdentifier/Preview Content\"";
