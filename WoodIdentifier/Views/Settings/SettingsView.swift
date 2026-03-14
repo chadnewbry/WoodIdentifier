@@ -229,6 +229,13 @@ struct SettingsView: View {
                 Label("Send Feedback", systemImage: "text.bubble")
             }
 
+
+            if let feedbackURL = viewModel.feedbackEmailURL() {
+                Link(destination: feedbackURL) {
+                    Label("Feedback / Product Suggestions", systemImage: "lightbulb")
+                }
+            }
+
             Button {
                 viewModel.rateApp()
             } label: {
