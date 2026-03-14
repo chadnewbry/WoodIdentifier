@@ -219,7 +219,7 @@ struct SettingsView: View {
         Section {
             if let emailURL = viewModel.supportEmailURL() {
                 Link(destination: emailURL) {
-                    Label("Customer Support", systemImage: "envelope")
+                    Label("Contact Support", systemImage: "envelope")
                 }
             }
 
