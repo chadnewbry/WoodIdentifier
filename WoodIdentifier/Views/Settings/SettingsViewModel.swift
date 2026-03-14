@@ -129,6 +129,16 @@ final class SettingsViewModel: ObservableObject {
         }
     }
 
+    func feedbackEmailURL() -> URL? {
+        let email = AppConfig.shared.review?.contactEmail ?? "chad.newbry@gmail.com"
+        let subject = "Feedback: Wood Identifier"
+        var components = URLComponents(string: "mailto:\(email)")
+        components?.queryItems = [
+            URLQueryItem(name: "subject", value: subject)
+        ]
+        return components?.url
+    }
+
     func supportEmailURL() -> URL? {
         let subject = "WoodSnap Support"
         let body = "Please describe your issue:\n\n\n---\nDevice Info: \(deviceInfo)"
