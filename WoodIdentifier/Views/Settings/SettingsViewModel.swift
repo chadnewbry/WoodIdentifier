@@ -132,7 +132,7 @@ final class SettingsViewModel: ObservableObject {
     func supportEmailURL() -> URL? {
         let subject = "WoodSnap Support"
         let body = "Please describe your issue:\n\n\n---\nDevice Info: \(deviceInfo)"
-        var components = URLComponents(string: "mailto:chad.newbry@gmail.com")
+        var components = URLComponents(string: AppConfig.shared.urls.support)
         components?.queryItems = [
             URLQueryItem(name: "subject", value: subject),
             URLQueryItem(name: "body", value: body)
