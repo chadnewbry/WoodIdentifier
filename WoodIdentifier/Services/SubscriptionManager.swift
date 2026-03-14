@@ -17,7 +17,8 @@ final class SubscriptionManager: NSObject, ObservableObject, PurchasesDelegate {
 
     func configure() {
         Purchases.logLevel = .debug
-        Purchases.configure(withAPIKey: "test_olzDjvxdNXOUTVYIUYVugaLOtlq")
+        let apiKey = AppConfig.shared.revenueCat?.apiKey ?? ""
+        Purchases.configure(withAPIKey: apiKey)
         Purchases.shared.delegate = self
         Task { await updateSubscriptionStatus() }
     }

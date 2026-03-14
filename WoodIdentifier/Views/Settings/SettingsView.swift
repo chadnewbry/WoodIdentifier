@@ -251,11 +251,11 @@ struct SettingsView: View {
     private var legalSection: some View {
         Section {
             // TODO: Replace with actual URLs once website is deployed
-            Link(destination: URL(string: "https://chadnewbry.github.io/WoodIdentifier/privacy")!) {
+            Link(destination: URL(string: AppConfig.shared.urls.privacyPolicy)!) {
                 Label("Privacy Policy", systemImage: "hand.raised")
             }
 
-            Link(destination: URL(string: "https://chadnewbry.github.io/WoodIdentifier/terms")!) {
+            Link(destination: URL(string: AppConfig.shared.urls.termsOfService)!) {
                 Label("Terms of Use", systemImage: "doc.text")
             }
         } header: {
