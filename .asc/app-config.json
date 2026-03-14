@@ -1,0 +1,14 @@
+{
+  "bundleId": "com.chadnewbry.WoodIdentifier",
+  "appName": "Wood Identifier",
+  "copyright": "© 2024 Chad Newbry LLC. All rights reserved.",
+  "urls": {
+    "website": "https://chadnewbry.github.io/WoodIdentifier",
+    "privacyPolicy": "https://chadnewbry.github.io/WoodIdentifier/privacy",
+    "termsOfService": "https://chadnewbry.github.io/WoodIdentifier/terms",
+    "support": "mailto:chad.newbry@gmail.com"
+  },
+  "revenueCat": {
+    "apiKey": "test_olzDjvxdNXOUTVYIUYVugaLOtlq"
+  }
+}
