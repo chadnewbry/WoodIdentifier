@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AC000001 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC000002 /* AppConfig.swift */; };
+		SC000002 /* ScreenshotSampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = SC000001 /* ScreenshotSampleData.swift */; };
 		AC000003 /* app-config.json in Resources */ = {isa = PBXBuildFile; fileRef = AC000004 /* app-config.json */; };
 		24F857FE2F54F1D800F6A896 /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = 24F857FD2F54F1D800F6A896 /* RevenueCat */; };
 		24F858002F54F1D800F6A896 /* RevenueCatUI in Frameworks */ = {isa = PBXBuildFile; productRef = 24F857FF2F54F1D800F6A896 /* RevenueCatUI */; };
@@ -69,6 +70,7 @@
 
 /* Begin PBXFileReference section */
 		AC000002 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
+		SC000001 /* ScreenshotSampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotSampleData.swift; sourceTree = "<group>"; };
 		AC000004 /* app-config.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "app-config.json"; sourceTree = "<group>"; };
 		24E54D9C2F63AF7A00FAC1F6 /* WoodIdentifier.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WoodIdentifier.entitlements; sourceTree = "<group>"; };
 		8AFA0A7F82CA4541806D7107 /* SpeciesDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeciesDetailView.swift; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 				B10001 /* WoodIdentifierApp.swift */,
 				B10002 /* ContentView.swift */,
 				AC000002 /* AppConfig.swift */,
+				SC000001 /* ScreenshotSampleData.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -428,6 +431,7 @@
 			files = (
 				SUB001B /* SubscriptionManager.swift in Sources */,
 				AC000001 /* AppConfig.swift in Sources */,
+				SC000002 /* ScreenshotSampleData.swift in Sources */,
 				SUB002B /* ReviewPromptManager.swift in Sources */,
 				SUB003B /* PaywallView.swift in Sources */,
 				A10001 /* WoodIdentifierApp.swift in Sources */,

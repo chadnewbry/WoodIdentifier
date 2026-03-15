@@ -1,0 +1,35 @@
+{
+  "appName": "Wood Identifier",
+  "theme": {
+    "backgroundColor": "#3B2314",
+    "headerColor": "#FFFFFF",
+    "subtitleColor": "#D4A574"
+  },
+  "screenshots": [
+    {
+      "filename": "01-camera.png",
+      "header": "Identify Any Wood",
+      "subtitle": "Point your camera and get instant results"
+    },
+    {
+      "filename": "02-history.png",
+      "header": "Track Your Scans",
+      "subtitle": "Build a history of every wood you identify"
+    },
+    {
+      "filename": "03-database.png",
+      "header": "Browse 500+ Species",
+      "subtitle": "Explore the world's most comprehensive wood database"
+    },
+    {
+      "filename": "04-species-detail.png",
+      "header": "Deep Species Info",
+      "subtitle": "Hardness, grain, uses, pricing, and more"
+    },
+    {
+      "filename": "05-settings.png",
+      "header": "Your Woodworking Hub",
+      "subtitle": "Customize your experience"
+    }
+  ]
+}
