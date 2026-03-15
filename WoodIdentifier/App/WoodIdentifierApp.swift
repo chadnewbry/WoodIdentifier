@@ -7,8 +7,27 @@ struct WoodIdentifierApp: App {
     @State private var showProfileSetup = false
     @StateObject private var subscriptionManager = SubscriptionManager.shared
 
+    let modelContainer: ModelContainer
+
     init() {
         SubscriptionManager.shared.configure()
+
+        let container = try! ModelContainer(for:
+            WoodSpecies.self,
+            WoodProperty.self,
+            WoodProject.self,
+            WoodImage.self,
+            ScanResult.self
+        )
+        self.modelContainer = container
+
+        #if DEBUG
+        if ScreenshotSampleData.isScreenshotMode {
+            UserDefaults.standard.set(true, forKey: "hasCompletedOnboarding")
+            UserDefaults.standard.set(true, forKey: "hasCompletedProfileSetup")
+            ScreenshotSampleData.populate(container: container)
+        }
+        #endif
     }
 
     var body: some Scene {
@@ -29,12 +48,6 @@ struct WoodIdentifierApp: App {
                     }
             }
         }
-        .modelContainer(for: [
-            WoodSpecies.self,
-            WoodProperty.self,
-            WoodProject.self,
-            WoodImage.self,
-            ScanResult.self
-        ])
+        .modelContainer(modelContainer)
     }
 }

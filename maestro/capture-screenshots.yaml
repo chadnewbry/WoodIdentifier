@@ -1,0 +1,45 @@
+appId: com.chadnewbry.WoodIdentifier
+name: "Capture App Store Screenshots"
+---
+
+# First launch: seed sample data with clean state
+- launchApp:
+    appId: com.chadnewbry.WoodIdentifier
+    clearState: true
+    arguments:
+      --screenshot-mode: ""
+
+# Relaunch without clearing so @Query picks up seeded data
+- launchApp:
+    appId: com.chadnewbry.WoodIdentifier
+    clearState: false
+    arguments:
+      --screenshot-mode: ""
+
+# Screenshot 1: Camera (home) tab
+- waitForAnimationToEnd
+- takeScreenshot: "01-camera"
+
+# Screenshot 2: History tab
+- tapOn: "History"
+- waitForAnimationToEnd
+- takeScreenshot: "02-history"
+
+# Screenshot 3: Database tab
+- tapOn: "Database"
+- waitForAnimationToEnd
+- takeScreenshot: "03-database"
+
+# Screenshot 4: Species detail (tap first species)
+- tapOn: "Black Walnut"
+- waitForAnimationToEnd
+- takeScreenshot: "04-species-detail"
+
+# Navigate back to database
+- tapOn: "Database"
+- waitForAnimationToEnd
+
+# Screenshot 5: Settings tab
+- tapOn: "Settings"
+- waitForAnimationToEnd
+- takeScreenshot: "05-settings"
