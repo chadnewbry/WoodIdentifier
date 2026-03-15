@@ -1,0 +1,8 @@
+appId: com.chadnewbry.WoodIdentifier
+---
+- launchApp
+- tapOn:
+    id: "Settings"
+- tapOn: "Upgrade to Pro"
+- waitForAnimationToEnd
+- takeScreenshot: paywall
