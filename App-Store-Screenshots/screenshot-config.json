@@ -1,35 +1,72 @@
 {
-  "appName": "Wood Identifier",
-  "theme": {
-    "backgroundColor": "#3B2314",
-    "headerColor": "#FFFFFF",
-    "subtitleColor": "#D4A574"
-  },
+  "screenshotCount": 5,
+  "screenshotsDirectory": "screenshots",
+  "outputDirectory": "App-Store-Screenshots",
+  "locale": "en-US",
+  "devices": [
+    {
+      "name": "iPhone 6.5",
+      "outputDirectory": "iPhone 6.5",
+      "outputWidth": 1242,
+      "outputHeight": 2688,
+      "screenAspectRatio": 2.1643,
+      "deviceWidthFraction": 0.75,
+      "frameCornerRadiusFraction": 0.13,
+      "bezelWidthFraction": 0.016
+    },
+    {
+      "name": "iPad 13",
+      "outputDirectory": "iPad 13",
+      "outputWidth": 2064,
+      "outputHeight": 2752,
+      "screenAspectRatio": 1.3333,
+      "deviceWidthFraction": 0.82,
+      "frameCornerRadiusFraction": 0.045,
+      "bezelWidthFraction": 0.008
+    }
+  ],
   "screenshots": [
     {
-      "filename": "01-camera.png",
+      "screenshotPath": "01_identify.png",
       "header": "Identify Any Wood",
       "subtitle": "Point your camera and get instant results"
     },
     {
-      "filename": "02-history.png",
-      "header": "Track Your Scans",
-      "subtitle": "Build a history of every wood you identify"
-    },
-    {
-      "filename": "03-database.png",
+      "screenshotPath": "02_database.png",
       "header": "Browse 500+ Species",
       "subtitle": "Explore the world's most comprehensive wood database"
     },
     {
-      "filename": "04-species-detail.png",
+      "screenshotPath": "03_details.png",
       "header": "Deep Species Info",
       "subtitle": "Hardness, grain, uses, pricing, and more"
     },
     {
-      "filename": "05-settings.png",
-      "header": "Your Woodworking Hub",
-      "subtitle": "Customize your experience"
+      "screenshotPath": "04_compare.png",
+      "header": "Compare Side by Side",
+      "subtitle": "See how different woods stack up"
+    },
+    {
+      "screenshotPath": "05_history.png",
+      "header": "Track Your Scans",
+      "subtitle": "Build a history of every wood you identify"
     }
-  ]
+  ],
+  "theme": {
+    "gradientTopColor": "#5C3A1E",
+    "gradientBottomColor": "#3B2314",
+    "deviceFrameColor": "#1C1C1E",
+    "subtitleColor": "#D4A574",
+    "subtitleFontSizeFraction": 0.066,
+    "subtitleMaxWidthFraction": 0.85,
+    "headerFontSizeFraction": 0.053,
+    "pillColor": "#D4A574",
+    "pillTextColor": "#3B2314",
+    "pillCornerRadiusFraction": 0.16,
+    "pillSubtitleGapFraction": 0.035,
+    "subtitleDeviceGapFraction": 0.08,
+    "topPaddingFraction": 0.07,
+    "shadowBlur": 25,
+    "shadowOpacity": 0.15
+  }
 }
