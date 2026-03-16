@@ -1,7 +1,7 @@
 {
   "screenshotCount": 5,
-  "screenshotsDirectory": "screenshots",
-  "outputDirectory": "App-Store-Screenshots",
+  "screenshotsDirectory": "inputs",
+  "outputDirectory": ".",
   "locale": "en-US",
   "devices": [
     {

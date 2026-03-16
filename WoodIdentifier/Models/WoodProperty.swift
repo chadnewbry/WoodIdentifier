@@ -3,10 +3,10 @@ import SwiftData
 
 @Model
 final class WoodProperty {
-    @Attribute(.unique) var id: UUID
-    var name: String
-    var propertyDescription: String
-    var value: String
+    var id: UUID = UUID()
+    var name: String = ""
+    var propertyDescription: String = ""
+    var value: String = ""
     var species: WoodSpecies?
 
     init(

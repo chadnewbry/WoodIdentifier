@@ -3,13 +3,13 @@ import SwiftData
 
 @Model
 final class WoodProject {
-    @Attribute(.unique) var id: UUID
-    var name: String
-    var projectDescription: String
-    var startDate: Date
+    var id: UUID = UUID()
+    var name: String = ""
+    var projectDescription: String = ""
+    var startDate: Date = Date()
     var endDate: Date?
-    var notes: String
-    var woodSpecies: [WoodSpecies] = []
+    var notes: String = ""
+    var woodSpecies: [WoodSpecies]? = []
 
     init(
         id: UUID = UUID(),

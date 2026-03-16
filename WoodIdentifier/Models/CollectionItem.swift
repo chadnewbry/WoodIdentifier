@@ -4,12 +4,12 @@ import SwiftData
 /// A saved/favorited species in the user's collection (Pro feature).
 @Model
 final class CollectionItem {
-    @Attribute(.unique) var id: UUID
-    var speciesName: String
-    var scientificName: String
-    var notes: String
-    var projectTag: String
-    var dateAdded: Date
+    var id: UUID = UUID()
+    var speciesName: String = ""
+    var scientificName: String = ""
+    var notes: String = ""
+    var projectTag: String = ""
+    var dateAdded: Date = Date()
     /// Compressed JPEG thumbnail of the species.
     var photoData: Data?
     /// Reference to the original scan result, if any.

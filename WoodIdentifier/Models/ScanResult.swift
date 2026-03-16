@@ -4,16 +4,16 @@ import SwiftData
 /// Persisted record of a completed wood identification scan.
 @Model
 final class ScanResult {
-    @Attribute(.unique) var id: UUID
-    var scanDate: Date
+    var id: UUID = UUID()
+    var scanDate: Date = Date()
     /// JSON-encoded [WoodMatch].
-    var matchesData: Data
+    var matchesData: Data = Data()
     /// Compressed JPEG of the scanned photo.
-    var photoData: Data
-    var isOfflineResult: Bool
+    var photoData: Data = Data()
+    var isOfflineResult: Bool = false
     /// Species name entered by the user when correcting an identification.
     var userCorrectedSpecies: String?
-    var freeScansRemaining: Int
+    var freeScansRemaining: Int = 0
     /// Human-readable location string (e.g., "Brooklyn, NY").
     var locationName: String?
     /// Latitude of the scan location.

@@ -17,7 +17,8 @@ struct WoodIdentifierApp: App {
             WoodProperty.self,
             WoodProject.self,
             WoodImage.self,
-            ScanResult.self
+            ScanResult.self,
+            CollectionItem.self
         )
         self.modelContainer = container
 
