@@ -3,10 +3,10 @@ import SwiftData
 
 @Model
 final class WoodImage {
-    @Attribute(.unique) var id: UUID
-    var url: String
-    var caption: String
-    var uploadDate: Date
+    var id: UUID = UUID()
+    var url: String = ""
+    var caption: String = ""
+    var uploadDate: Date = Date()
     var associatedSpecies: WoodSpecies?
 
     init(

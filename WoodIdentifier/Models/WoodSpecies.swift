@@ -3,38 +3,38 @@ import SwiftData
 
 @Model
 final class WoodSpecies {
-    @Attribute(.unique) var id: UUID
-    var name: String
-    var scientificName: String
-    var speciesDescription: String
-    var category: String
+    var id: UUID = UUID()
+    var name: String = ""
+    var scientificName: String = ""
+    var speciesDescription: String = ""
+    var category: String = "Hardwood"
     var hardness: Int?
     var density: Double?
-    var grainPattern: String
-    var colorHex: String
-    var uses: String
-    var pricing: String
-    var imageURL: String
-    var region: String
-    var workability: Int
-    var durability: Int
-    var isFreeSpecies: Bool
-    var workingTips: String
+    var grainPattern: String = ""
+    var colorHex: String = "#8B4513"
+    var uses: String = ""
+    var pricing: String = "$$"
+    var imageURL: String = ""
+    var region: String = ""
+    var workability: Int = 5
+    var durability: Int = 5
+    var isFreeSpecies: Bool = false
+    var workingTips: String = ""
     var shrinkageRadial: Double?
     var shrinkageTangential: Double?
-    var sustainability: String
-    var confusedWith: String
-    var savedToCollection: Bool
-    var databaseVersion: Int
+    var sustainability: String = "Common"
+    var confusedWith: String = ""
+    var savedToCollection: Bool = false
+    var databaseVersion: Int = 1
 
     @Relationship(deleteRule: .cascade, inverse: \WoodProperty.species)
-    var properties: [WoodProperty] = []
+    var properties: [WoodProperty]? = []
 
     @Relationship(deleteRule: .cascade, inverse: \WoodImage.associatedSpecies)
-    var images: [WoodImage] = []
+    var images: [WoodImage]? = []
 
     @Relationship(inverse: \WoodProject.woodSpecies)
-    var projects: [WoodProject] = []
+    var projects: [WoodProject]? = []
 
     init(
         id: UUID = UUID(),

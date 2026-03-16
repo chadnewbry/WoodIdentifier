@@ -8,6 +8,11 @@ name: "Capture App Store Screenshots"
     clearState: true
     arguments:
       --screenshot-mode: ""
+    permissions:
+      camera: allow
+      photos: allow
+      location: always
+      notifications: allow
 
 # Relaunch without clearing so @Query picks up seeded data
 - launchApp:
@@ -16,17 +21,31 @@ name: "Capture App Store Screenshots"
     arguments:
       --screenshot-mode: ""
 
-# Screenshot 1: Camera (home) tab
+# Tap Allow on camera permission dialog
+- tapOn:
+    text: "Allow"
+    optional: true
+
+# Dismiss tutorial overlay if present
+- tapOn:
+    text: "Got It"
+    optional: true
+
+# Wait for UI to settle
 - waitForAnimationToEnd
+
+# Screenshot 1: Camera (home) tab
 - takeScreenshot: "01-camera"
 
 # Screenshot 2: History tab
-- tapOn: "History"
+- tapOn:
+    text: "History"
 - waitForAnimationToEnd
 - takeScreenshot: "02-history"
 
 # Screenshot 3: Database tab
-- tapOn: "Database"
+- tapOn:
+    text: "Database"
 - waitForAnimationToEnd
 - takeScreenshot: "03-database"
 
@@ -36,10 +55,12 @@ name: "Capture App Store Screenshots"
 - takeScreenshot: "04-species-detail"
 
 # Navigate back to database
-- tapOn: "Database"
+- tapOn:
+    text: "Database"
 - waitForAnimationToEnd
 
 # Screenshot 5: Settings tab
-- tapOn: "Settings"
+- tapOn:
+    text: "Settings"
 - waitForAnimationToEnd
 - takeScreenshot: "05-settings"

@@ -55,7 +55,7 @@ struct SpeciesDetailView: View {
 
     private var heroSection: some View {
         VStack(spacing: 12) {
-            if species.images.isEmpty {
+            if (species.images ?? []).isEmpty {
                 RoundedRectangle(cornerRadius: 16)
                     .fill(Color(hex: species.colorHex).gradient)
                     .frame(height: 260)
@@ -67,7 +67,7 @@ struct SpeciesDetailView: View {
                     .padding(.horizontal)
             } else {
                 TabView {
-                    ForEach(species.images) { img in
+                    ForEach(species.images ?? []) { img in
                         AsyncImage(url: URL(string: img.url)) { phase in
                             switch phase {
                             case .success(let image):

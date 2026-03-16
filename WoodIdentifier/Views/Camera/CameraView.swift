@@ -457,6 +457,8 @@ struct ScanResultsSheet: View {
     let result: IdentificationResult
     var photos: [UIImage] = []
     @Environment(\.dismiss) private var dismiss
+    @StateObject private var subscriptionManager = SubscriptionManager.shared
+    @State private var showPaywall = false
     @State private var showFeedback = false
     @State private var selectedMatchForFeedback: WoodMatch?
 
@@ -556,6 +558,9 @@ struct ScanResultsSheet: View {
         }
         .presentationDetents([.medium, .large])
         .presentationDragIndicator(.visible)
+        .fullScreenCover(isPresented: $showPaywall) {
+            PaywallView()
+        }
     }
 
     private func matchCard(_ match: WoodMatch) -> some View {
