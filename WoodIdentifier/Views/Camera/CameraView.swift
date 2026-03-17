@@ -555,12 +555,12 @@ struct ScanResultsSheet: View {
             .sheet(isPresented: $showFeedback) {
                 FeedbackSheet(originalMatch: selectedMatchForFeedback)
             }
+            .fullScreenCover(isPresented: $showPaywall) {
+                PaywallView()
+            }
         }
         .presentationDetents([.medium, .large])
         .presentationDragIndicator(.visible)
-        .fullScreenCover(isPresented: $showPaywall) {
-            PaywallView()
-        }
     }
 
     private func matchCard(_ match: WoodMatch) -> some View {

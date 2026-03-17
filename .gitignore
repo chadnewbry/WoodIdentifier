@@ -27,3 +27,6 @@ Pods/
 # Playgrounds
 timeline.xctimeline
 playground.xcworkspace
+
+# Claude Code
+.mcp.json
