@@ -27,29 +27,29 @@
   ],
   "screenshots": [
     {
-      "screenshotPath": "01_identify.png",
+      "screenshotPath": "camera-scanning.png",
       "header": "Identify Any Wood",
       "subtitle": "Point your camera and get instant results"
     },
     {
-      "screenshotPath": "02_database.png",
+      "screenshotPath": "identification-results.png",
+      "header": "AI-Powered Results",
+      "subtitle": "Get ranked matches with confidence scores"
+    },
+    {
+      "screenshotPath": "species-detail.png",
+      "header": "Deep Species Info",
+      "subtitle": "Grain, hardness, uses, and similar species"
+    },
+    {
+      "screenshotPath": "scan-history.png",
+      "header": "Track Your Scans",
+      "subtitle": "Build a collection of every wood you identify"
+    },
+    {
+      "screenshotPath": "wood-database.png",
       "header": "Browse 500+ Species",
       "subtitle": "Explore the world's most comprehensive wood database"
-    },
-    {
-      "screenshotPath": "03_details.png",
-      "header": "Deep Species Info",
-      "subtitle": "Hardness, grain, uses, pricing, and more"
-    },
-    {
-      "screenshotPath": "04_compare.png",
-      "header": "Compare Side by Side",
-      "subtitle": "See how different woods stack up"
-    },
-    {
-      "screenshotPath": "05_history.png",
-      "header": "Track Your Scans",
-      "subtitle": "Build a history of every wood you identify"
     }
   ],
   "theme": {
