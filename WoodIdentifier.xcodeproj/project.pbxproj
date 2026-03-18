@@ -561,6 +561,7 @@
 				DEVELOPMENT_TEAM = 62R87RHN6R;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_CFBundleDisplayName = "Wood Identifier";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Wood Identifier needs camera access to photograph wood for identification.";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Wood Identifier needs photo library access to select wood photos for identification.";
@@ -590,6 +591,7 @@
 				DEVELOPMENT_TEAM = 62R87RHN6R;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_CFBundleDisplayName = "Wood Identifier";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Wood Identifier needs camera access to photograph wood for identification.";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Wood Identifier needs photo library access to select wood photos for identification.";
